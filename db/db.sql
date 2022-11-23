@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2022 at 12:32 PM
+-- Generation Time: Nov 23, 2022 at 10:25 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -34,6 +34,13 @@ CREATE TABLE `bus_details` (
   `TripDate` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `bus_details`
+--
+
+INSERT INTO `bus_details` (`bus_no`, `trip_no`, `route`, `TripDate`) VALUES
+(122, 1, 'vsg-mrg', '2022-11-22');
+
 -- --------------------------------------------------------
 
 --
@@ -43,11 +50,20 @@ CREATE TABLE `bus_details` (
 CREATE TABLE `passenger` (
   `phone_no` int(11) DEFAULT NULL,
   `ticket_id` int(11) NOT NULL,
-  `passenger_id` int(11) NOT NULL,
   `ticket_price` int(11) DEFAULT NULL,
-  `passenger_route` varchar(255) DEFAULT NULL,
-  `trip_no_passenger` int(11) NOT NULL
+  `Passenger_source` varchar(255) NOT NULL,
+  `trip_no_passenger` int(11) NOT NULL,
+  `Passenger_destination` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `passenger`
+--
+
+INSERT INTO `passenger` (`phone_no`, `ticket_id`, `ticket_price`, `Passenger_source`, `trip_no_passenger`, `Passenger_destination`) VALUES
+(2147483647, 1212, 15, 'vasco', 1, 'margao'),
+(323, 12, 20, 'vasco', 1, 'becl'),
+(782389728, 9, 33, 'vasco', 1, 'margao');
 
 -- --------------------------------------------------------
 
@@ -56,7 +72,7 @@ CREATE TABLE `passenger` (
 --
 
 CREATE TABLE `trip_incharge` (
-  `trip_no_incharge` int(11) DEFAULT NULL,
+  `trip_no_incharge` int(11) NOT NULL,
   `Driver_emp_id` int(11) NOT NULL,
   `Conductor_emp_id` int(11) NOT NULL,
   `scheduled_dept_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
@@ -72,10 +88,19 @@ CREATE TABLE `trip_incharge` (
 CREATE TABLE `trip_real_details` (
   `trip_no_real` int(11) DEFAULT NULL,
   `fuel` int(11) DEFAULT NULL,
-  `arrival_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `departure_time` timestamp NOT NULL DEFAULT current_timestamp(),
+  `arrival_time` time NOT NULL DEFAULT current_timestamp(),
+  `departure_time` time NOT NULL,
   `km_count` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `trip_real_details`
+--
+
+INSERT INTO `trip_real_details` (`trip_no_real`, `fuel`, `arrival_time`, `departure_time`, `km_count`) VALUES
+(1, 32, '00:00:00', '00:00:00', 20),
+(1, 32, '00:00:00', '00:00:00', 20),
+(1, 32, '16:51:00', '23:51:00', 20);
 
 -- --------------------------------------------------------
 
@@ -88,6 +113,13 @@ CREATE TABLE `trip_result` (
   `revenue` int(11) DEFAULT NULL,
   `tickets_sold` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `trip_result`
+--
+
+INSERT INTO `trip_result` (`trip_no_result`, `revenue`, `tickets_sold`) VALUES
+(1, 555, 30);
 
 --
 -- Indexes for dumped tables
@@ -104,65 +136,54 @@ ALTER TABLE `bus_details`
 -- Indexes for table `passenger`
 --
 ALTER TABLE `passenger`
-  ADD PRIMARY KEY (`ticket_id`,`passenger_id`),
-  ADD UNIQUE KEY `trip_no_passenger` (`trip_no_passenger`);
+  ADD KEY `passenger_ibfk_1` (`trip_no_passenger`);
 
 --
 -- Indexes for table `trip_incharge`
 --
 ALTER TABLE `trip_incharge`
   ADD PRIMARY KEY (`Driver_emp_id`,`Conductor_emp_id`),
-  ADD KEY `trip_no_incharge` (`trip_no_incharge`);
+  ADD KEY `trip_incharge_ibfk_1` (`trip_no_incharge`);
 
 --
 -- Indexes for table `trip_real_details`
 --
 ALTER TABLE `trip_real_details`
-  ADD KEY `trip_no_real` (`trip_no_real`);
+  ADD KEY `trip_real_details_ibfk_1` (`trip_no_real`);
 
 --
 -- Indexes for table `trip_result`
 --
 ALTER TABLE `trip_result`
-  ADD KEY `trip_no_result` (`trip_no_result`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `passenger`
---
-ALTER TABLE `passenger`
-  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT;
+  ADD KEY `trip_result_ibfk_1` (`trip_no_result`);
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `bus_details`
+-- Constraints for table `passenger`
 --
-ALTER TABLE `bus_details`
-  ADD CONSTRAINT `bus_details_ibfk_1` FOREIGN KEY (`trip_no`) REFERENCES `passenger` (`trip_no_passenger`);
+ALTER TABLE `passenger`
+  ADD CONSTRAINT `passenger_ibfk_1` FOREIGN KEY (`trip_no_passenger`) REFERENCES `bus_details` (`trip_no`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `trip_incharge`
 --
 ALTER TABLE `trip_incharge`
-  ADD CONSTRAINT `trip_incharge_ibfk_1` FOREIGN KEY (`trip_no_incharge`) REFERENCES `bus_details` (`trip_no`);
+  ADD CONSTRAINT `trip_incharge_ibfk_1` FOREIGN KEY (`trip_no_incharge`) REFERENCES `bus_details` (`trip_no`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `trip_real_details`
 --
 ALTER TABLE `trip_real_details`
-  ADD CONSTRAINT `trip_real_details_ibfk_1` FOREIGN KEY (`trip_no_real`) REFERENCES `bus_details` (`trip_no`);
+  ADD CONSTRAINT `trip_real_details_ibfk_1` FOREIGN KEY (`trip_no_real`) REFERENCES `bus_details` (`trip_no`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `trip_result`
 --
 ALTER TABLE `trip_result`
-  ADD CONSTRAINT `trip_result_ibfk_1` FOREIGN KEY (`trip_no_result`) REFERENCES `bus_details` (`trip_no`);
+  ADD CONSTRAINT `trip_result_ibfk_1` FOREIGN KEY (`trip_no_result`) REFERENCES `bus_details` (`trip_no`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
