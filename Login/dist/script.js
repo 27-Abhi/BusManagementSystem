@@ -35,7 +35,7 @@ function validateC(){
 		var password = document.getElementById("passwordD").value;
 		if ( username == "Driver" && password == "12345678"){
 		alert ("Login successfully");
-		window.location = "../../Conductor_DashBoard/conductorDashboard.html"; // Redirecting to other page.
+		window.location = "../../Conductor_DashBoard/Driver_Dashboard.html"; // Redirecting to other page.
 		return true;
 		}
 		else 
