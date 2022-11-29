@@ -26,7 +26,7 @@ function fetch_data($db, $tableName, $columns){
 }else{
 //$columnName = implode(", ", $columns);
 //joins
-$query1 = "SELECT bus_details.bus_no,trip_real_details.trip_no_real,(km_count/trip_real_details.fuel) AS MILAGE
+$query1 = "SELECT bus_details.bus_no,AVG((km_count/trip_real_details.fuel)) AS MILAGE
 FROM bus_details
 INNER JOIN trip_real_details ON trip_real_details.trip_no_real = bus_details.trip_no 
 ORDER BY MILAGE DESC;";
@@ -74,7 +74,6 @@ return $msg;
     <div class="table-responsive">
       <table class="table table-bordered">
        <thead><tr><th>S.N</th>
-         <th>TRIP Number</th>
          <th>Bus Number</th>
          <th>MILAGE</th>
     </thead>
@@ -86,7 +85,6 @@ return $msg;
     ?>
       <tr>
       <td><?php echo $sn; ?></td>
-      <td><?php echo $data['trip_no_real']??''; ?></td>
       <td><?php echo $data['bus_no']??''; ?></td>
       <td><?php echo $data['MILAGE']??''; ?></td>
      </tr>
