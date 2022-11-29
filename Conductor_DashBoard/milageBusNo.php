@@ -1,4 +1,5 @@
 <?php
+//HELPS US SEARCH MILAGE ON ENTERING A BUS NUMBER
 //database connection
 $hostName = "localhost";
 $userName = "root";
