@@ -94,9 +94,9 @@ return $msg;
       <tr>
       <td><?php echo $sn; ?></td>
       <td><?php $busNum= $data['bus_no']??'';
-      if(!$busNum){echo "incorrect bus number";}
+      if(!$busNum){echo "bus number not found";} // if empty value fetched from database, echos bus no not found
       else{echo "$busNum";} ?></td>
-      <td><?php if(!$busNum){echo "incorrect bus number";}
+      <td><?php if(!$busNum){echo "bus number not found";}
       else{ echo $data['MILAGE']??'';} ?></td>
      </tr>
      <?php
