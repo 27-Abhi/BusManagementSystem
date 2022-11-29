@@ -47,12 +47,12 @@ button {
 }
 
 .maindiv {
-    margin: 90px auto;
-    width: 25%;
-    padding: 20px;
+    margin: 142px auto;
+    width: 20%;
+    padding: 50px;
     background: #fff;
     border: 2px solid #333;
-    border-radius: 10px;
+    border-radius: 20px;
     opacity: 1;
 }
 
