@@ -1,0 +1,60 @@
+#grad {
+    background-image: linear-gradient(to bottom right, #43cea2, #185a9d);
+}
+
+
+h2 {
+    color: #000;
+}
+
+input[type=number] {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #aaaaaa;
+}
+
+input[type=time] {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #aaaaaa;
+}
+
+button {
+
+    /* remove default behavior */
+    appearance: none;
+    -webkit-appearance: none;
+
+    /* usual styles */
+    padding: 10px;
+    border: none;
+    background-color: #3F51B5;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 5px;
+    width: 25%;
+
+}
+
+.maindiv {
+    margin: 90px auto;
+    width: 25%;
+    padding: 20px;
+    background: #fff;
+    border: 2px solid #333;
+    border-radius: 10px;
+    opacity: 1;
+}
+
+.button {
+    padding: 20px;
+    border: 10px;
+    background-color: #3F51B5;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 10px;
+    width: 25%;
+    margin: 100px;
+}
