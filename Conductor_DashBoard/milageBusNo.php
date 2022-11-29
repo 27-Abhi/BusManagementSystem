@@ -28,7 +28,8 @@ function fetch_data($db, $tableName, $columns){
 $query1 = "SELECT bus_details.bus_no,trip_real_details.trip_no_real,(km_count/trip_real_details.fuel) AS MILAGE
 FROM bus_details
 INNER JOIN trip_real_details ON trip_real_details.trip_no_real = bus_details.trip_no 
-ORDER BY MILAGE DESC;";
+ORDER BY MILAGE DESC
+WHERE bus_no=$";
 //$query="SELECT * FROM Milage ORDER BY DESC";
 //$db->query($query1);
 $result = $db->query($query1);
