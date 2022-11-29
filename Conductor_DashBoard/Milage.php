@@ -14,6 +14,7 @@ if ($conn->connect_error) {
 $db= $conn;
 $tableName="trip_real_details";
 $columns= ['trip_no_real', 'fuel','arrival_time','departure_time','km_count'];
+//$busno=$_GET['BusNumber'];
 $fetchData = fetch_data($db, $tableName, $columns);
 function fetch_data($db, $tableName, $columns){
  if(empty($db)){
@@ -58,11 +59,11 @@ return $msg;
  <div class="row">
    <div class="col-sm-8">
     
-   <form align="center" action="milageBusNo.php" method="post">
+   <form align="center" action="milageBusNo.php" method="get">
         <div class="info">
 
-            Bus Number: <input type="number" placeholder="Bus Number" name="BusNumber"><br><br>
-
+            Search BY: Bus Number: <input type="number" placeholder="Bus Number" name="BusNumber"><br><br>
+            <input type="submit">
         </div>
 
 
