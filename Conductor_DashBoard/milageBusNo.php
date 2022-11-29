@@ -27,13 +27,16 @@ function fetch_data($db, $tableName, $columns){
 //$columnName = implode(", ", $columns);
 //joins
 $busno=$_GET['BusNumber'];
+
 $query1 = "SELECT bus_details.bus_no,AVG((km_count/trip_real_details.fuel)) AS MILAGE
 FROM bus_details
 INNER JOIN trip_real_details ON trip_real_details.trip_no_real = bus_details.trip_no
 WHERE bus_no='$busno'";
 //$query="SELECT * FROM Milage ORDER BY DESC";
 //$db->query($query1);
+
 $result = $db->query($query1);
+
 if($result== true){ 
  if ($result->num_rows > 0) {
     $row= mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -87,12 +90,17 @@ return $msg;
       $sn=1;
       foreach($fetchData as $data){
     ?>
+    
       <tr>
       <td><?php echo $sn; ?></td>
-      <td><?php echo $data['bus_no']??''; ?></td>
-      <td><?php echo $data['MILAGE']??''; ?></td>
+      <td><?php $busNum= $data['bus_no']??'';
+      if(!$busNum){echo "incorrect bus number";}
+      else{echo "$busNum";} ?></td>
+      <td><?php if(!$busNum){echo "incorrect bus number";}
+      else{ echo $data['MILAGE']??'';} ?></td>
      </tr>
      <?php
+     
       $sn++;}}else{ ?>
       <tr>
         <td colspan="8">
