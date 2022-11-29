@@ -15,32 +15,30 @@ signUpBtn.addEventListener("click", () => {
 fistForm.addEventListener("submit", (e) => e.preventDefault());
 secondForm.addEventListener("submit", (e) => e.preventDefault());
 
-function validateC(){
+function validateC() {
 	var username = document.getElementById("usernameC").value;
 	var password = document.getElementById("passwordC").value;
-	if ( username == "Conductor" && password == "12345678"){
-	alert ("Login successfully");
-	window.location = "../../Conductor_DashBoard/conductorDashboard.html"; // Redirecting to other page.
-	return true;
+	if (username == "Conductor" && password == "12345678") {
+		alert("Login successfully");
+		window.location = "../../Conductor_DashBoard/conductorDashboard.html"; // Redirecting to other page.
+		return true;
 	}
-	else 
-	{
+	else {
 		alert("incorrect password or username");
 		return false
 	}
-	}
-	
-	function validateD(){
-		var username = document.getElementById("usernameD").value;
-		var password = document.getElementById("passwordD").value;
-		if ( username == "Driver" && password == "12345678"){
-		alert ("Login successfully");
+}
+
+function validateD() {
+	var username = document.getElementById("usernameD").value;
+	var password = document.getElementById("passwordD").value;
+	if (username == "Driver" && password == "12345678") {
+		alert("Login successfully");
 		window.location = "../../Conductor_DashBoard/Driver_Dashboard.html"; // Redirecting to other page.
 		return true;
-		}
-		else 
-		{
-			alert("incorrect password or username");
-			return false
-		}
-		}
+	}
+	else {
+		alert("incorrect password or username");
+		return false
+	}
+}
