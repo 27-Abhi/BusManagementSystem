@@ -34,30 +34,37 @@ if($rs)
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trip Details</title>
+    <link rel="stylesheet" type="text/css" href="tripDetails.css">
+
+    <title>Conductor Trip Details</title>
 </head>
 
-<body>
-    <form align="center" action="tripconnect.php" method="post">
-        <div class="title">
-            <a type="" href="../Login/dist/index.html">Log Out</a>
-            <a type="" href="conductorDashboard.html">Go Back</a>
-            <h2>Enter Passenger Details</h2>
-        </div>
+<body id="grad" class="grad">
+    <a class="button" href="../Login/dist/index.html">Log Out</a>
+    <a class="button" href="conductorDashboard.html">Go Back</a>
+    <div class="maindiv" id="maindiv">
 
-        <div class="info">
+        <form align="center" action="tripconnect.php" method="post">
+            <div class="title">
 
-            Trip Number: <input type="number" placeholder="Trip Number" name="TripNumber"><br><br>
+                <h2>Enter Trip Details</h2>
+            </div>
 
-            Total Revenue: <input type="number" name="totalRevenue" placeholder="Revenue Generated"><br><br>
-            Tickets Sold: <input type="number" name="ticketsSold" placeholder="Total Tickets Sold"><br><br>
-            
+            <div class="info">
 
-        </div>
+                Trip Number: <input type="number" placeholder="Trip Number" name="TripNumber"><br><br>
+
+                Total Revenue: <input type="number" name="totalRevenue" placeholder="Revenue Generated"><br><br>
+                Tickets Sold: <input type="number" name="ticketsSold" placeholder="Total Tickets Sold"><br><br>
 
 
-        <button type="submit" href="/">Submit</button>
-    </form>
+            </div>
+
+            <br>
+
+            <button type="submit" href="/">Submit</button>
+        </form>
+    </div>
 </body>
 
 </html>

@@ -44,7 +44,7 @@ if($rs)
 
 <body id="grad" class="grad">
     <a class="button" href="../Login/dist/index.html">Log Out</a>
-    <a class="button" href="conductorDashboard.html">Go Back</a>
+    <a class="button" href="AdminDashboard.html">Go Back</a>
     <div class="maindiv" id="maindiv">
 
         <form align="center" action="SuperAdmin.php" method="post">

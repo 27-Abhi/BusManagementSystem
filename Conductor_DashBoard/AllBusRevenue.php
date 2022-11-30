@@ -55,7 +55,7 @@ return $msg;
 <body class="grad" id="grad">
 
     <div class="container" id="Buttondiv">
-        <a type="button" class="btn btn-primary" target="">Back</a>
+        <a type="button" href="AdminDashboard.html" class="btn btn-primary" target="">Back</a>
         <!--Enter target href-->
     </div>
     <div class="container" id="maindiv">
