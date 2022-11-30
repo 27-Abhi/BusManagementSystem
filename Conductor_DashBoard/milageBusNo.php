@@ -63,14 +63,14 @@ return $msg;
 <body class="grad" id="grad">
 
     <div class="container" id="Buttondiv">
-        <a type="button" class="btn btn-primary" target="">Back</a>
-        <!--Enter target href-->
+        <a type="button" href="AdminDashboard.html" class="btn btn-primary" target="">Back</a>
+        
     </div>
     <div class="container" id="maindiv">
         <div>
             <div class="col-sm-25">
     
-   <form name="myform" align="center" action="milageBusNo.php" method="get">
+   <form align="center" action="milageBusNo.php" method="get">
         <div class="info">
 
             Search BY: Bus Number: <input type="number" placeholder="Bus Number" name="BusNumber"><br><br>
@@ -80,10 +80,7 @@ return $msg;
 
 
 
-        <script>  var name = document.forms["myForm"]["BusNumber"].value;
-      if(name==" "){
-      alert("Not a valid bus number");
-      }</script>
+
     <?php echo $deleteMsg??''; ?>
     <div class="table-responsive">
       <table class="table table-bordered">
@@ -97,17 +94,12 @@ return $msg;
       $sn=1;
       foreach($fetchData as $data){
     ?>
-    
       <tr>
       <td><?php echo $sn; ?></td>
-      <td><?php $busNum= $data['bus_no']??'';
-      if(!$busNum){echo "bus number not found";} // if empty value fetched from database, echos bus no not found
-      else{echo "$busNum";} ?></td>
-      <td><?php if(!$busNum){echo "bus number not found";}
-      else{ echo $data['MILAGE']??'';} ?></td>
+      <td><?php echo $data['bus_no']??''; ?></td>
+      <td><?php echo $data['MILAGE']??''; ?></td>
      </tr>
      <?php
-     
       $sn++;}}else{ ?>
       <tr>
         <td colspan="8">
