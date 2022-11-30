@@ -74,7 +74,7 @@ return $msg;
         <div class="info">
 
             Search BY: Bus Number: <input type="number" placeholder="Bus Number" name="BusNumber"><br><br>
-            <input type="submit">
+            <input class="btn btn-primary btn-lg btn-block" type="submit">
         </div>
 
 
