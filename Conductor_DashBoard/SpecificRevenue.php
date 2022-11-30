@@ -58,6 +58,7 @@ return $msg;
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
   <link rel="stylesheet" type="text/css" href="driverDetails.css">
+  <link rel="stylesheet" type="text/css" href="test.css">
 
 </head>
 <body class="grad" id="grad">

@@ -50,11 +50,17 @@ return $msg;
 <html>
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="test.css">
 </head>
-<body>
-<div class="container">
- <div class="row">
-   <div class="col-sm-8">
+<body class="grad" id="grad">
+
+    <div class="container" id="Buttondiv">
+        <a type="button" class="btn btn-primary" target="">Back</a>
+        <!--Enter target href-->
+    </div>
+    <div class="container" id="maindiv">
+        <div>
+            <div class="col-sm-25">
 
     <?php echo $deleteMsg??''; ?>
     <div class="table-responsive">
