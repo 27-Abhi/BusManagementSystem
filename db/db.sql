@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2022 at 09:52 AM
+-- Generation Time: Nov 30, 2022 at 10:21 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -100,9 +100,9 @@ CREATE TABLE `mileage` (
 --
 
 CREATE TABLE `passenger` (
-  `phone_no` int(11) DEFAULT NULL,
+  `phone_no` int(10) NOT NULL,
   `ticket_id` int(11) NOT NULL,
-  `ticket_price` int(11) DEFAULT NULL,
+  `ticket_price` int(11) NOT NULL,
   `Passenger_source` varchar(255) NOT NULL,
   `trip_no_passenger` int(11) NOT NULL,
   `Passenger_destination` varchar(255) NOT NULL
@@ -119,7 +119,9 @@ INSERT INTO `passenger` (`phone_no`, `ticket_id`, `ticket_price`, `Passenger_sou
 (899977, 3, 15, 'PANJIM', 2, 'MARGAO'),
 (2147483647, 3, 15, 'vasco', 1, 'margao'),
 (2147483647, 3, 15, 'vasco', 1, 'margao'),
-(1234567890, 4, 50, 'vasco', 3, 'panjim');
+(1234567890, 4, 50, 'vasco', 3, 'panjim'),
+(2147483647, 4, 15, 'vasco', 3, 'panjim'),
+(0, 5, 20, 'vasco', 3, 'panjim');
 
 -- --------------------------------------------------------
 
@@ -215,9 +217,9 @@ DELIMITER ;
 --
 
 CREATE TABLE `trip_result` (
-  `trip_no_result` int(11) DEFAULT NULL,
-  `revenue` int(11) DEFAULT NULL,
-  `tickets_sold` int(11) DEFAULT NULL
+  `trip_no_result` int(11) NOT NULL,
+  `revenue` int(11) NOT NULL,
+  `tickets_sold` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
