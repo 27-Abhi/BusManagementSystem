@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2022 at 07:14 PM
+-- Generation Time: Nov 30, 2022 at 09:52 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -43,6 +43,24 @@ INSERT INTO `bus_details` (`bus_no`, `trip_no`, `Source`, `Destination`, `TripDa
 (122, 1, 'Vasco', 'Margao', '2022-11-22'),
 (129, 2, 'PANJIM', 'MARGAO', '2022-11-25'),
 (334, 3, 'panaji', 'vasco', '2022-11-25');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `login`
+--
+
+CREATE TABLE `login` (
+  `user_name` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`user_name`, `password`) VALUES
+('C1234', '1234');
 
 -- --------------------------------------------------------
 
@@ -98,7 +116,10 @@ INSERT INTO `passenger` (`phone_no`, `ticket_id`, `ticket_price`, `Passenger_sou
 (2147483647, 1212, 15, 'vasco', 1, 'margao'),
 (323, 12, 20, 'vasco', 1, 'becl'),
 (782389728, 9, 33, 'vasco', 1, 'margao'),
-(899977, 3, 15, 'PANJIM', 2, 'MARGAO');
+(899977, 3, 15, 'PANJIM', 2, 'MARGAO'),
+(2147483647, 3, 15, 'vasco', 1, 'margao'),
+(2147483647, 3, 15, 'vasco', 1, 'margao'),
+(1234567890, 4, 50, 'vasco', 3, 'panjim');
 
 -- --------------------------------------------------------
 
@@ -173,7 +194,9 @@ INSERT INTO `trip_real_details` (`trip_no_real`, `fuel`, `arrival_time`, `depart
 (1, 50, '00:00:00', '06:04:44', 20),
 (1, 50, '00:00:00', '20:20:20', 20),
 (2, 50, '14:48:30', '12:48:30', 30),
-(2, 50, '18:50:32', '18:27:32', 35);
+(2, 50, '18:50:32', '18:27:32', 35),
+(3, 58, '16:09:00', '14:09:00', 30),
+(3, 58, '16:09:00', '14:09:00', 30);
 
 --
 -- Triggers `trip_real_details`
@@ -204,7 +227,9 @@ CREATE TABLE `trip_result` (
 INSERT INTO `trip_result` (`trip_no_result`, `revenue`, `tickets_sold`) VALUES
 (1, 555, 30),
 (1, 57, 4),
-(2, 575, 19);
+(2, 575, 19),
+(2, 5000, 60),
+(2, 5000, 60);
 
 --
 -- Triggers `trip_result`
@@ -247,6 +272,12 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 ALTER TABLE `bus_details`
   ADD PRIMARY KEY (`bus_no`,`trip_no`),
   ADD UNIQUE KEY `trip_no` (`trip_no`);
+
+--
+-- Indexes for table `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`user_name`);
 
 --
 -- Indexes for table `passenger`
