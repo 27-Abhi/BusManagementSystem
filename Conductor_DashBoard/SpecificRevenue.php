@@ -56,9 +56,12 @@ return $msg;
 <html>
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <link rel="stylesheet" type="text/css" href="driverDetails.css">
+
 </head>
-<body>
-<div class="container">
+<body class="grad" id="grad">
+<div class="container" id="maindiv">
  <div class="row">
    <div class="col-sm-8">
     
