@@ -47,7 +47,7 @@ if($rs)
     <a class="button" href="AdminDashboard.html">Go Back</a>
     <div class="maindiv" id="maindiv">
 
-        <form align="center" action="SuperAdmin.php" method="post">
+        <form align="center" action="ConFillTripDetails.php" method="post">
             <div class="title">
 
                 <h2>Enter Trip Incharge Details</h2>
