@@ -1,8 +1,7 @@
-<?php 
+<?php
 session_start();
 
-if($_SESSION['status']!="Active")
-{
+if ($_SESSION['status'] != "Active") {
     header("location:../Login/dist/login.php");
 }
 
@@ -177,26 +176,33 @@ if($_SESSION['status']!="Active")
         <div>
             <img src="https://cdn-icons-png.flaticon.com/512/2798/2798177.png">
 
-            <h3>Conductor ID: <?php echo $_SESSION['username']?></h3>
+            <h3>Conductor ID:
+                <?php echo $_SESSION['username'] ?>
+            </h3>
             <h3>Bus Number: </h3>
             <a class="btn-item" type="" href="../Login/dist/logout.php">Log Out</a>
-            
+
         </div>
+
         <div class=" left-part">
 
-                <h1>Conductor Dashboard</h1>
+            <h1>Conductor Dashboard</h1>
 
-                <div class="btn-group">
-                    <a class="btn-item" href="passengerDetailsForm.html">Enter Passenger Details</a>
-                    <a class="btn-item" href="tripDetailsForm.html">Enter Trip Details</a>
-                </div>
+            <div class="btn-group">
+                <a class="btn-item" href="passengerDetailsForm.php">Enter Passenger Details</a>
+                <a class="btn-item" href="tripDetailsForm.php">Enter Trip Details</a>
+            </div>
 
-                <br>
+            <br>
 
 
         </div>
 
     </div>
 </body>
+<!-- $conID = $_SESSION['username'];
+            $result = $conn->query("SELECT `bus_details`.`trip_no`,`bus_details`.`bus_no` AS `bus_no`, `bus_details`.`Source` AS `Source`,`bus_details`.`Destination` AS `Destination`,`bus_details`.`TripDate` AS `TripDate`,`trip_incharge`.`Driver_emp_id` AS `Driver_emp_id`,`trip_incharge`.`scheduled_dept_time` AS `scheduled_dept_time`,`trip_incharge`.`scheduled_arr_time` AS `scheduled_arr_time`
+FROM (`bus_details` join `trip_incharge` on(`trip_incharge`.`trip_no_incharge` = `bus_details`.`trip_no`))
+WHERE `Conductor_emp_id`='$conID'"); //take code from specificRevenue.php-->
 
 </html>

@@ -1,3 +1,12 @@
+<?php 
+session_start();
+
+if($_SESSION['status']!="Active")
+{
+    header("location:../Login/dist/login.php");
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
