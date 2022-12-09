@@ -1,3 +1,12 @@
+<?php 
+session_start();
+
+if($_SESSION['status']!="Active")
+{
+    header("location:../Login/dist/login.php");
+}
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -115,9 +124,9 @@
         <div>
             <img src="https://cdn-icons-png.flaticon.com/512/2798/2798177.png">
 
-            <h3>Driver ID: </h3>
+            <h3>Driver ID:<?php echo $_SESSION['username']?> </h3>
             <h3>Bus Number: </h3>
-            <a class="btn-item" type="" href="../Login/dist/index.html"">Log Out</a>
+            <a class="btn-item" type="" href="../Login/dist/logout.php">Log Out</a>
             
         </div>
         <div class=" left-part">
