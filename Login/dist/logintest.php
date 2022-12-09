@@ -13,42 +13,45 @@
 </script>
 </head>
 <body>
-	<form action="" method="POST">
-		<table>
-			<tr>
-				<td>
-					<input type="text" name="username" placeholder="Enter your username">
-				</td>
-				<td>
-					<input type="password" name="password" placeholder="Enter your password">
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input type="submit" name="loginC" value="login">
-				</td>
-			</tr>
-		</table>
+<div class="container right-panel-active">
+		<!-- Conductor Login -->
+		<div class="container__form container--signup">
+	<form action="" class="form" method="POST">
+			<input type="text" name="username" class="input" placeholder="Enter your username">
+			<input type="password" class="input" name="password" placeholder="Enter your password">
+			<input type="submit" name="loginC" value="login" class='btn'>
 	</form>
+	</div>
 
-    <form action="" method="POST">
-		<table>
-			<tr>
-				<td>
-					<input type="text" name="username" placeholder="Enter your username">
-				</td>
-				<td>
-					<input type="password" name="password" placeholder="Enter your password">
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input type="submit" name="loginD" value="login">
-				</td>
-			</tr>
-		</table>
+<!-- Driver Login -->
+	<div class="container__form container--signin">
+    <form action="" method="POST" class='form'>
+					<input type="text" name="username" class="input" placeholder="Enter your username">
+					<input type="password" name="password" class="input" placeholder="Enter your password">
+					<input type="submit" name="loginD" value="login" class='btn'>
 	</form>
-	<?php
+    </div>
+
+
+    <div class="container__overlay">
+			<div class="overlay">
+				<div class="overlay__panel overlay--left">
+					<button class="btn" id="signIn">Driver Login</button>
+				</div>
+				<div class="overlay__panel overlay--right">
+					<button class="btn" id="signUp">Conductor Login</button>
+				</div>
+			</div>
+		</div>
+    </div>
+    <!-- partial -->
+	<script src="./script.js"></script>
+
+    <div>
+		<a class="btn" href="adminlogin.php">Admin</a>
+	</div>
+
+<?php
 if(isset($_POST['loginC']))
 {
 	session_start();

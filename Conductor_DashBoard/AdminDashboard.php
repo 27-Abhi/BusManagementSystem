@@ -1,3 +1,14 @@
+<?php 
+session_start();
+
+if($_SESSION['status']!="Active")
+{
+    header("location:../Login/dist/login.php");
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -117,7 +128,7 @@
 
             <h3>Admin Page</h3>
             <h3>Username:</h3>
-            <a class="btn-item" type="" href="../Login/dist/index.html"">Log Out</a>
+            <a class="btn-item" type="" href="../Login/dist/logout.php">Log Out</a>
             
         </div>
         <div class=" left-part">
