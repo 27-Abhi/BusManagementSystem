@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2022 at 10:21 AM
+-- Generation Time: Dec 09, 2022 at 11:02 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -40,9 +40,19 @@ CREATE TABLE `bus_details` (
 --
 
 INSERT INTO `bus_details` (`bus_no`, `trip_no`, `Source`, `Destination`, `TripDate`) VALUES
+(1, 12, '1', '1', '2022-12-08'),
+(12, 10, '2', '12', '2022-12-07'),
+(12, 11, '2', '12', '2022-12-07'),
+(12, 13, '2', '12', '2022-12-07'),
+(115, 8, 'Ponda', 'vasco', '2022-12-01'),
 (122, 1, 'Vasco', 'Margao', '2022-11-22'),
+(123, 9, 'panaji', 'vasco', '2022-12-07'),
 (129, 2, 'PANJIM', 'MARGAO', '2022-11-25'),
-(334, 3, 'panaji', 'vasco', '2022-11-25');
+(334, 3, 'panaji', 'vasco', '2022-11-25'),
+(555, 5, 'panjim', 'ponda', '2022-11-30'),
+(987, 4, 'Ponda', 'Margao', '2022-11-30'),
+(999, 6, 'panaji', 'vasco', '2022-12-08'),
+(999, 7, 'panaji', 'vasco', '2022-12-08');
 
 -- --------------------------------------------------------
 
@@ -65,6 +75,28 @@ INSERT INTO `login` (`user_name`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `login_admin`
+--
+
+CREATE TABLE `login_admin` (
+  `user_name` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `login_driver`
+--
+
+CREATE TABLE `login_driver` (
+  `user_name` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `lossmaking`
 --
 
@@ -80,7 +112,9 @@ CREATE TABLE `lossmaking` (
 
 INSERT INTO `lossmaking` (`Trip_no`, `revenue`, `tickets_sold`) VALUES
 (1, 57, 4),
-(2, 575, 19);
+(2, 575, 19),
+(4, 500, 45),
+(4, 500, 54);
 
 -- --------------------------------------------------------
 
@@ -100,7 +134,7 @@ CREATE TABLE `mileage` (
 --
 
 CREATE TABLE `passenger` (
-  `phone_no` int(10) NOT NULL,
+  `phone_no` int(11) NOT NULL,
   `ticket_id` int(11) NOT NULL,
   `ticket_price` int(11) NOT NULL,
   `Passenger_source` varchar(255) NOT NULL,
@@ -121,7 +155,12 @@ INSERT INTO `passenger` (`phone_no`, `ticket_id`, `ticket_price`, `Passenger_sou
 (2147483647, 3, 15, 'vasco', 1, 'margao'),
 (1234567890, 4, 50, 'vasco', 3, 'panjim'),
 (2147483647, 4, 15, 'vasco', 3, 'panjim'),
-(0, 5, 20, 'vasco', 3, 'panjim');
+(0, 5, 20, 'vasco', 3, 'panjim'),
+(2147483647, 5, 20, 'Panjim', 3, 'Vasco'),
+(987654321, 3, 100, 'Panjim', 3, 'vasco'),
+(2147483647, 15, 12, 'NSD', 4, 'Pcce'),
+(2147483647, 15, 12, 'NSD', 4, 'Pcce'),
+(2147483647, 12, 12, 'vasco', 3, 'Pcce');
 
 -- --------------------------------------------------------
 
@@ -167,9 +206,17 @@ CREATE TABLE `trip_incharge` (
   `trip_no_incharge` int(11) NOT NULL,
   `Driver_emp_id` int(11) NOT NULL,
   `Conductor_emp_id` int(11) NOT NULL,
-  `scheduled_dept_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `scheduled_arr_time` timestamp NOT NULL DEFAULT current_timestamp()
+  `scheduled_dept_time` time NOT NULL,
+  `scheduled_arr_time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `trip_incharge`
+--
+
+INSERT INTO `trip_incharge` (`trip_no_incharge`, `Driver_emp_id`, `Conductor_emp_id`, `scheduled_dept_time`, `scheduled_arr_time`) VALUES
+(4, 121, 122, '16:39:00', '14:39:00'),
+(4, 1221, 1222, '00:00:00', '00:00:00');
 
 -- --------------------------------------------------------
 
@@ -198,7 +245,9 @@ INSERT INTO `trip_real_details` (`trip_no_real`, `fuel`, `arrival_time`, `depart
 (2, 50, '14:48:30', '12:48:30', 30),
 (2, 50, '18:50:32', '18:27:32', 35),
 (3, 58, '16:09:00', '14:09:00', 30),
-(3, 58, '16:09:00', '14:09:00', 30);
+(3, 58, '16:09:00', '14:09:00', 30),
+(4, 53, '16:41:00', '14:41:00', 34),
+(5, 50, '16:49:00', '14:49:00', 35);
 
 --
 -- Triggers `trip_real_details`
@@ -231,7 +280,9 @@ INSERT INTO `trip_result` (`trip_no_result`, `revenue`, `tickets_sold`) VALUES
 (1, 57, 4),
 (2, 575, 19),
 (2, 5000, 60),
-(2, 5000, 60);
+(2, 5000, 60),
+(4, 500, 45),
+(4, 500, 54);
 
 --
 -- Triggers `trip_result`

@@ -90,7 +90,7 @@ if(isset($_POST['loginD']))
 	$connection = mysqli_connect('localhost','root','','test4');
 	if(!$connection){die("Connection Error -> ".mysqli_connect_error());}
 
-	$sql = "SELECT * FROM `login` WHERE user_name = '$username' && password = '$password'";
+	$sql = "SELECT * FROM `login_driver` WHERE user_name = '$username' && password = '$password'";
 	$result = mysqli_query($connection, $sql);
 	$num = mysqli_num_rows($result);
 	if($num==1)
