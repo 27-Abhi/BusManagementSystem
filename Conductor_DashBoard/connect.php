@@ -5,13 +5,30 @@
 
 $con = mysqli_connect('localhost', 'root', '','test4');
 
+
+$query = "SELECT MAX(`ticket_id`) AS LASTTRIP  FROM `passenger`;";
+  
+$result  = mysqli_query($con, $query);
+if ($result->num_rows > 0) 
+    {
+        // OUTPUT DATA OF EACH ROW
+        while($row = $result->fetch_assoc())
+        {
+            $TicketID= $row['LASTTRIP'];
+            $TicketID++;
+        }
+    }
+
 // get the post records
 $TripNumber= $_POST['TripNumber'];
 $PhoneNumber= $_POST['PhoneNumber'];
-$TicketID= $_POST['TicketID'];
+//$TicketID= $_POST['TicketID'];
 $sourceChoice= $_POST['sourceChoice'];
 $destinationChoice= $_POST['destinationChoice']; 
 $Ticketprice= $_POST['Ticketprice'];
+
+
+
 
 // database insert SQL code
 
@@ -22,7 +39,7 @@ $rs = mysqli_query($con, $sql);
 
 if($rs)
 {
-	echo "Tickets generated";
+	echo "Tickets generated. ticket id is '{$TicketID}'";
 }
 
 
@@ -54,7 +71,7 @@ if($rs)
             <!--<input type="date" placeholder="Trip Date" name="date">!-->
             Trip Number: <input type="number" placeholder="Trip Number" name="TripNumber"><br><br>
             Phone Number: <input type="number" id="tel" name="PhoneNumber" placeholder="Phone Number" /><br><br>
-            Ticket ID: <input type="text" name="TicketID" placeholder="Ticket ID"><br><br>
+            <!-- Ticket ID: <input type="text" name="TicketID" placeholder="Ticket ID"><br><br> -->
 
             Select Source Bus stop: <input type="text" name="sourceChoice" placeholder="Source bus stop"><br><br>
             <!-- <select name="sourceChoice" placeholder="Source bus stop">

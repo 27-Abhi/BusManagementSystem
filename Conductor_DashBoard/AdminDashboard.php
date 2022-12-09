@@ -13,7 +13,7 @@ if($_SESSION['status']!="Active")
 <html>
 
 <head>
-    <title>Driver Dashboard</title>
+    <title>Admin Dashboard</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
         integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
@@ -127,7 +127,7 @@ if($_SESSION['status']!="Active")
             <img src="https://cdn-icons-png.flaticon.com/512/2798/2798177.png">
 
             <h3>Admin Page</h3>
-            <h3>Username:</h3>
+            <h3>Username:<?php $_SESSION['username'] ?></h3>
             <a class="btn-item" type="" href="../Login/dist/logout.php">Log Out</a>
             
         </div>
@@ -154,7 +154,10 @@ if($_SESSION['status']!="Active")
                     <a class="btn-item" href="Milage.php">Mileage of Buses</a>
                     <a class="btn-item" href="quicktripsTriggerDisplay.php">Quick Trips</a>
                 </div>
-
+                <div class="btn-group">
+                    <a class="btn-item" href="AddCon.php">Add Conductor</a>
+                    <a class="btn-item" href="AddDri.php">Add Driver</a>
+                </div>
                 
         </div>
 
