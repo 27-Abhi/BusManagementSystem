@@ -5,7 +5,7 @@ if ($_SESSION['status'] != "Active") {
     header("location:../Login/dist/login.php");
 }
 
-?>
+
 
 // Connect to database
 $con = mysqli_connect("localhost", "root", "", "test4");

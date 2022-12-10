@@ -63,8 +63,8 @@ if ($rs) {
 
 <body id="grad" class="grad">
 
-    <a class="button" href="../Login/dist/index.html">Log Out</a>
-    <a class="button" href="conductorDashboard.html">Go Back</a>
+    <a class="button" href="../Login/dist/logout.php">Log Out</a>
+    <a class="button" href="conductorDashboard.php">Go Back</a>
 
     <form class="maindiv" id="maindiv" action="connect.php" method="post" align="center">
         <div class="title">
@@ -73,7 +73,33 @@ if ($rs) {
 
         <div class="info">
             <!--<input type="date" placeholder="Trip Date" name="date">!-->
-            Trip Number: <input type="number" placeholder="Trip Number" name="TripNumber"><br><br>
+            Trip Number:<select name="TripNumber" placeholder="Trip Number">
+                <?php
+                $sql = "SELECT trip_no FROM `bus_details`";
+                $trip_nos = mysqli_query($con, $sql);
+                // use a while loop to fetch data
+                // from the $all_categories variable
+                // and individually display as an option
+                while (
+                    $bus_details = mysqli_fetch_array(
+                        $trip_nos,
+                    MYSQLI_ASSOC
+                    )
+                ):
+                    ;
+                ?>
+                <option value="<?php echo $bus_details["trip_no"];
+                    // The value we usually set is the primary key
+                ?>">
+                    <?php echo $bus_details["trip_no"];
+                    // To show the category name to the user
+                    ?>
+                </option>
+                <?php
+                endwhile;
+                // While loop must be terminated
+                ?>
+            </select> <br><br>
             Phone Number: <input type="number" id="tel" name="PhoneNumber" placeholder="Phone Number" /><br><br>
             <!-- Ticket ID: <input type="text" name="TicketID" placeholder="Ticket ID"><br><br> -->
 
