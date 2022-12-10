@@ -194,6 +194,9 @@ if ($_SESSION['status'] != "Active") {
             </div>
 
             <br>
+            <div class="btn-group">
+                <a class="btn-item" href="ConTripView.php">Assigned Trips</a>
+            </div>
 
 
         </div>

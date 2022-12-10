@@ -136,6 +136,8 @@ if ($_SESSION['status'] != "Active") {
 
             <div class="btn-group">
                 <a class="btn-item" href="driverDetails.php">Enter trip Details</a>
+                <a class="btn-item" href="DriTripView.php">Assigned Trips</a>
+                <!-- DISPLAYS ONLY THOSE TRIPS WHICH HE HAS BEEN ASSIGNED -->
             </div>
         </div>
 

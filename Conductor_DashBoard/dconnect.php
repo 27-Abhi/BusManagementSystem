@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+if ($_SESSION['status'] != "Active") {
+    header("location:../Login/dist/login.php");
+}
+
+?>
 
 // database connection code
 // $con = mysqli_connect('localhost', 'database_user', 'database_password','database');
@@ -21,14 +28,14 @@ $kmCount = $_POST['kmCount'];
 
 // database insert SQL code
 
-$sql = "INSERT INTO `trip_real_details`(`trip_no_real`, `fuel`, `arrival_time`, `departure_time`, `km_count`) 
-  VALUES('$TripNumber', '$fuelConsumption', '$actualArrivalTime', '$actualDepTime', '$kmCount')";
+$sql = "INSERT INTO `trip_real_details`(`trip_no_real`, `fuel`, `arrival_time`, `departure_time`, `km_count`)
+VALUES('$TripNumber', '$fuelConsumption', '$actualArrivalTime', '$actualDepTime', '$kmCount')";
 
-// insert in database 
+// insert in database
 $rs = mysqli_query($con, $sql);
 
 if ($rs) {
-    echo "Records Inserted";
+echo "Records Inserted";
 }
 
 

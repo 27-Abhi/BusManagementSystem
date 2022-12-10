@@ -1,31 +1,36 @@
 <?php
+session_start();
+
+if ($_SESSION['status'] != "Active") {
+    header("location:../Login/dist/login.php");
+}
+
+
 
 // database connection code
 // $con = mysqli_connect('localhost', 'database_user', 'database_password','database');
 
-$con = mysqli_connect('localhost', 'root', '','test4');
+$con = mysqli_connect('localhost', 'root', '', 'test4');
 
 
 $query = "SELECT MAX(`ticket_id`) AS LASTTRIP  FROM `passenger`;";
-  
-$result  = mysqli_query($con, $query);
-if ($result->num_rows > 0) 
-    {
-        // OUTPUT DATA OF EACH ROW
-        while($row = $result->fetch_assoc())
-        {
-            $TicketID= $row['LASTTRIP'];
-            $TicketID++;
-        }
+
+$result = mysqli_query($con, $query);
+if ($result->num_rows > 0) {
+    // OUTPUT DATA OF EACH ROW
+    while ($row = $result->fetch_assoc()) {
+        $TicketID = $row['LASTTRIP'];
+        $TicketID++;
     }
+}
 
 // get the post records
-$TripNumber= $_POST['TripNumber'];
-$PhoneNumber= $_POST['PhoneNumber'];
+$TripNumber = $_POST['TripNumber'];
+$PhoneNumber = $_POST['PhoneNumber'];
 //$TicketID= $_POST['TicketID'];
-$sourceChoice= $_POST['sourceChoice'];
-$destinationChoice= $_POST['destinationChoice']; 
-$Ticketprice= $_POST['Ticketprice'];
+$sourceChoice = $_POST['sourceChoice'];
+$destinationChoice = $_POST['destinationChoice'];
+$Ticketprice = $_POST['Ticketprice'];
 
 
 
@@ -37,9 +42,8 @@ $sql = "INSERT INTO `passenger`(`trip_no_passenger`, `phone_no`, `ticket_id`, `P
 // insert in database 
 $rs = mysqli_query($con, $sql);
 
-if($rs)
-{
-	echo "Tickets generated. ticket id is '{$TicketID}'";
+if ($rs) {
+    echo "Tickets generated. ticket id is '{$TicketID}'";
 }
 
 
@@ -61,7 +65,7 @@ if($rs)
 
     <a class="button" href="../Login/dist/index.html">Log Out</a>
     <a class="button" href="conductorDashboard.html">Go Back</a>
-    
+
     <form class="maindiv" id="maindiv" action="connect.php" method="post" align="center">
         <div class="title">
             <h2>Enter Passenger Details</h2>

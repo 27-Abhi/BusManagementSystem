@@ -64,7 +64,7 @@ WHERE bus_no='$busno'";
 <body class="grad" id="grad">
 
   <div class="container" id="Buttondiv">
-    <a type="button" href="AdminDashboard.html" class="btn btn-primary" target="">Back</a>
+    <a type="button" href="AdminDashboard.php" class="btn btn-primary" target="">Back</a>
     <!--Enter target href-->
   </div>
   <div class="container" id="maindiv">
@@ -94,10 +94,10 @@ WHERE bus_no='$busno'";
               </thead>
               <tbody>
                 <?php
-  if (is_array($fetchData)) {
-    $sn = 1;
-    foreach ($fetchData as $data) {
-  ?>
+                if (is_array($fetchData)) {
+                  $sn = 1;
+                  foreach ($fetchData as $data) {
+                ?>
                 <tr>
                   <td>
                     <?php echo $sn; ?>
@@ -113,16 +113,16 @@ WHERE bus_no='$busno'";
                   </td>
                 </tr>
                 <?php
-      $sn++;
-    }
-  } else { ?>
+                    $sn++;
+                  }
+                } else { ?>
                 <tr>
                   <td colspan="8">
                     <?php echo $fetchData; ?>
                   </td>
                 <tr>
                   <?php
-  } ?>
+                } ?>
               </tbody>
             </table>
           </div>

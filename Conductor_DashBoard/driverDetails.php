@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+if ($_SESSION['status'] != "Active") {
+    header("location:../Login/dist/login.php");
+}
+
+?>
 
 // Connect to database
 $con = mysqli_connect("localhost", "root", "", "test4");
@@ -24,7 +31,7 @@ $trip_nos = mysqli_query($con, $sql);
 
 <body id="grad" class="grad">
 
-    <!-- <a class="button" href="../Login/dist/index.html">Log Out</a> -->
+    <a class="button" href="../Conductor_DashBoard/Driver_DashBoard.php">Go Back</a>
 
     <div class="maindiv" id="maindiv">
 
