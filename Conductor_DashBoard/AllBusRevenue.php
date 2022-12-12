@@ -94,10 +94,10 @@ function fetch_data($db, $tableName, $columns)
               </thead>
               <tbody>
                 <?php
-  if (is_array($fetchData)) {
-    $sn = 1;
-    foreach ($fetchData as $data) {
-  ?>
+                if (is_array($fetchData)) {
+                  $sn = 1;
+                  foreach ($fetchData as $data) {
+                ?>
                 <tr>
                   <td>
                     <?php echo $sn; ?>
@@ -113,22 +113,110 @@ function fetch_data($db, $tableName, $columns)
                   </td>
                 </tr>
                 <?php
-      $sn++;
-    }
-  } else { ?>
+                    $sn++;
+                  }
+                } else { ?>
                 <tr>
                   <td colspan="8">
                     <?php echo $fetchData; ?>
                   </td>
                 <tr>
                   <?php
-  } ?>
+                } ?>
               </tbody>
             </table>
           </div>
       </div>
     </div>
   </div>
+</body>
+
+</html>
+
+
+
+<?php
+//$busno = $_GET['BusNumber'];
+$dataPoints = array();
+//Best practice is to create a separate file for handling connection to database
+try {
+  // Creating a new connection.
+  // Replace your-hostname, your-db, your-username, your-password according to your database
+  $link = new \PDO(
+    'mysql:host=localhost;dbname=test4;charset=utf8mb4',
+    //'mysql:host=localhost;dbname=canvasjs_db;charset=utf8mb4',
+    'root',
+    //'root',
+    '',
+    //'',
+    array(
+        \PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        \PDO::ATTR_PERSISTENT => false
+    )
+  );
+
+  $handle = $link->prepare("SELECT bus_no AS x,revenue AS y
+    FROM `RevenuePerBus`");
+  $handle->execute();
+  $result = $handle->fetchAll(\PDO::FETCH_OBJ);
+
+  foreach ($result as $row) {
+    array_push($dataPoints, array("x" => $row->x, "y" => $row->y));
+  }
+  $link = null;
+} catch (\PDOException $ex) {
+  print($ex->getMessage());
+}
+
+?>
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <script>
+    window.onload = function () {
+
+      var chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        exportEnabled: true,
+        theme: "light2", // "light1", "light2", "dark1", "dark2"
+
+        title: {
+          text: "Revenue"
+        },
+        axisY: {
+          title: "INR"
+        },
+        axisX: {
+          title: "Trip Number"
+        },
+        data: [{
+          indexLabel: "{x}",
+          legendText: "{x}",
+          showInLegend: true,
+          type: "pie", //change type to bar, line, area, pie, etc  
+          dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+	}]
+});
+    chart.render();
+ 
+}
+
+  </script>
+  <style>
+    #chartContainer {
+      display: flex;
+      justify-content: center;
+      /*make changes here*/
+
+
+    }
+  </style>
+</head>
+
+<body>
+  <div id="chartContainer" style="height: 400px; width: 30%;"></div> <!--   container for graphs -->
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
 
 </html>

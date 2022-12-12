@@ -117,6 +117,7 @@ WHERE bus_no='$busno'";
                     <?php if (!$busNum) {
                       echo "bus number not found";
                     } else {
+                      $MILAGE = $data['MILAGE'] ?? '';
                       echo $data['MILAGE'] ?? '';
                     } ?>
                   </td>
