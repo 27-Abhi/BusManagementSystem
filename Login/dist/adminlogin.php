@@ -4,6 +4,8 @@
 	<title>Kadamba Bus Management System</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 	<link rel="stylesheet" href="./style.css">
+	<link rel="icon" type="image/x-icon" href="../../Images/favicon.ico/">
+	
     <script>
     history.pushState(null, null, null);
     window.addEventListener('popstate', function () {
@@ -13,6 +15,8 @@
 </script>
 </head>
 <body>
+	
+
 <div class="container right-panel-active">
 		<!-- admin Login -->
 		<div class="container__form container--signup">
