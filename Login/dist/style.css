@@ -81,7 +81,7 @@ body {
 
 .container.right-panel-active .container--signup {
 	-webkit-animation: show 0.6s;
-	        animation: show 0.6s;
+	animation: show 0.6s;
 	opacity: 1;
 	transform: translateX(100%);
 	z-index: 5;
@@ -167,7 +167,7 @@ body {
 	transition: transform 80ms ease-in;
 }
 
-.form > .btn {
+.form>.btn {
 	margin-top: 1.5rem;
 }
 
@@ -199,6 +199,7 @@ body {
 }
 
 @-webkit-keyframes show {
+
 	0%,
 	49.99% {
 		opacity: 0;
@@ -213,6 +214,7 @@ body {
 }
 
 @keyframes show {
+
 	0%,
 	49.99% {
 		opacity: 0;
@@ -223,5 +225,49 @@ body {
 	100% {
 		opacity: 1;
 		z-index: 5;
+	}
+}
+
+/*Navbar CSS*/
+#mainNavbar {
+	font-size: 1.5rem;
+	font-weight: 100;
+}
+
+#mainNavbar .nav-link {
+	color: white;
+}
+
+#mainNavbar .nav-link:hover {
+	color: #EA1C2C;
+}
+
+#mainNavbar .navbar-brand {
+	color: #EA1C2C;
+	font-size: 1.5rem;
+}
+
+#headingGroup span {
+	color: #EA1C2C;
+}
+
+#headingGroup h1 {
+	font-weight: 100;
+	font-size: 4rem;
+}
+
+.navbar.scrolled {
+	background: rgb(222, 192, 222);
+	transition: background 500ms;
+}
+
+@media (max-width: 1200px) {
+	#headingGroup h1 {
+		font-weight: 100;
+		font-size: 3rem;
+	}
+
+	.blurb h2 {
+		font-size: 2rem;
 	}
 }
