@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 12, 2022 at 03:21 PM
+-- Generation Time: Dec 12, 2022 at 04:25 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -49,6 +49,8 @@ INSERT INTO `bus_details` (`bus_no`, `trip_no`, `Source`, `Destination`, `TripDa
 (71, 18, 'panaji', 'cancona', '2022-12-09'),
 (115, 8, 'Ponda', 'vasco', '2022-12-01'),
 (122, 1, 'Vasco', 'Margao', '2022-11-22'),
+(122, 21, 'panaji', 'vasco', '2022-12-13'),
+(122, 22, 'panaji', 'vasco', '2022-12-13'),
 (123, 9, 'panaji', 'vasco', '2022-12-07'),
 (129, 2, 'PANJIM', 'MARGAO', '2022-11-25'),
 (334, 3, 'panaji', 'vasco', '2022-11-25'),
@@ -118,7 +120,8 @@ CREATE TABLE `login_driver` (
 
 INSERT INTO `login_driver` (`user_name`, `password`) VALUES
 ('D1234', '1234'),
-('D1000', '1234');
+('D1000', '1234'),
+('', '');
 
 -- --------------------------------------------------------
 
@@ -251,7 +254,8 @@ INSERT INTO `trip_incharge` (`trip_no_incharge`, `Driver_emp_id`, `Conductor_emp
 (4, '121', '122', '16:39:00', '14:39:00'),
 (4, '1221', '1222', '00:00:00', '00:00:00'),
 (20, 'D1001', 'C1000', '11:43:00', '01:43:00'),
-(18, 'D1234', 'C1234', '21:08:00', '23:08:00');
+(18, 'D1234', 'C1234', '21:08:00', '23:08:00'),
+(22, 'D1234', 'C1234', '20:55:00', '20:55:00');
 
 -- --------------------------------------------------------
 
@@ -378,7 +382,6 @@ ALTER TABLE `passenger`
 -- Indexes for table `trip_incharge`
 --
 ALTER TABLE `trip_incharge`
-  ADD PRIMARY KEY (`Driver_emp_id`,`Conductor_emp_id`),
   ADD KEY `trip_incharge_ibfk_1` (`trip_no_incharge`);
 
 --
