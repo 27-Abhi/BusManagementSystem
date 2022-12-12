@@ -1,17 +1,39 @@
 <?php
+session_start();
+
+if ($_SESSION['status'] != "Active") {
+    header("location:../Login/dist/login.php");
+}
+
+
 
 // database connection code
 // $con = mysqli_connect('localhost', 'database_user', 'database_password','database');
 
-$con = mysqli_connect('localhost', 'root', '','test4');
+$con = mysqli_connect('localhost', 'root', '', 'test4');
+
+
+$query = "SELECT MAX(`ticket_id`) AS LASTTRIP  FROM `passenger`;";
+
+$result = mysqli_query($con, $query);
+if ($result->num_rows > 0) {
+    // OUTPUT DATA OF EACH ROW
+    while ($row = $result->fetch_assoc()) {
+        $TicketID = $row['LASTTRIP'];
+        $TicketID++;
+    }
+}
 
 // get the post records
-$TripNumber= $_POST['TripNumber'];
-$PhoneNumber= $_POST['PhoneNumber'];
-$TicketID= $_POST['TicketID'];
-$sourceChoice= $_POST['sourceChoice'];
-$destinationChoice= $_POST['destinationChoice']; 
-$Ticketprice= $_POST['Ticketprice'];
+$TripNumber = $_POST['TripNumber'];
+$PhoneNumber = $_POST['PhoneNumber'];
+//$TicketID= $_POST['TicketID'];
+$sourceChoice = $_POST['sourceChoice'];
+$destinationChoice = $_POST['destinationChoice'];
+$Ticketprice = $_POST['Ticketprice'];
+
+
+
 
 // database insert SQL code
 
@@ -20,9 +42,8 @@ $sql = "INSERT INTO `passenger`(`trip_no_passenger`, `phone_no`, `ticket_id`, `P
 // insert in database 
 $rs = mysqli_query($con, $sql);
 
-if($rs)
-{
-	echo "Tickets generated";
+if ($rs) {
+    echo "Tickets generated. ticket id is '{$TicketID}'";
 }
 
 
@@ -42,9 +63,9 @@ if($rs)
 
 <body id="grad" class="grad">
 
-    <a class="button" href="../Login/dist/index.html">Log Out</a>
-    <a class="button" href="conductorDashboard.html">Go Back</a>
-    
+    <a class="button" href="../Login/dist/logout.php">Log Out</a>
+    <a class="button" href="conductorDashboard.php">Go Back</a>
+
     <form class="maindiv" id="maindiv" action="connect.php" method="post" align="center">
         <div class="title">
             <h2>Enter Passenger Details</h2>
@@ -52,9 +73,35 @@ if($rs)
 
         <div class="info">
             <!--<input type="date" placeholder="Trip Date" name="date">!-->
-            Trip Number: <input type="number" placeholder="Trip Number" name="TripNumber"><br><br>
+            Trip Number:<select name="TripNumber" placeholder="Trip Number">
+                <?php
+                $sql = "SELECT trip_no FROM `bus_details`";
+                $trip_nos = mysqli_query($con, $sql);
+                // use a while loop to fetch data
+                // from the $all_categories variable
+                // and individually display as an option
+                while (
+                    $bus_details = mysqli_fetch_array(
+                        $trip_nos,
+                    MYSQLI_ASSOC
+                    )
+                ):
+                    ;
+                ?>
+                <option value="<?php echo $bus_details["trip_no"];
+                    // The value we usually set is the primary key
+                ?>">
+                    <?php echo $bus_details["trip_no"];
+                    // To show the category name to the user
+                    ?>
+                </option>
+                <?php
+                endwhile;
+                // While loop must be terminated
+                ?>
+            </select> <br><br>
             Phone Number: <input type="number" id="tel" name="PhoneNumber" placeholder="Phone Number" /><br><br>
-            Ticket ID: <input type="text" name="TicketID" placeholder="Ticket ID"><br><br>
+            <!-- Ticket ID: <input type="text" name="TicketID" placeholder="Ticket ID"><br><br> -->
 
             Select Source Bus stop: <input type="text" name="sourceChoice" placeholder="Source bus stop"><br><br>
             <!-- <select name="sourceChoice" placeholder="Source bus stop">

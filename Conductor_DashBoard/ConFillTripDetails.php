@@ -1,16 +1,22 @@
 <?php
 
+session_start();
+
+if ($_SESSION['status'] != "Active") {
+    header("location:../Login/dist/login.php");
+}
+
 // database connection code
 // $con = mysqli_connect('localhost', 'database_user', 'database_password','database');
 
-$con = mysqli_connect('localhost', 'root', '','test4');
+$con = mysqli_connect('localhost', 'root', '', 'test4');
 
 // get the post records
-$TripNumber= $_POST['TripNumber'];
-$did= $_POST['did'];
-$cid= $_POST['cid'];
-$sdep= $_POST['sdep'];
-$sarr= $_POST['sarr'];
+$TripNumber = $_POST['TripNumber'];
+$did = $_POST['did'];
+$cid = $_POST['cid'];
+$sdep = $_POST['sdep'];
+$sarr = $_POST['sarr'];
 
 
 // database insert SQL code
@@ -21,9 +27,8 @@ $sql = "INSERT INTO `trip_incharge`(`trip_no_incharge`,`Driver_emp_id`, `Conduct
 // insert in database 
 $rs = mysqli_query($con, $sql);
 
-if($rs)
-{
-	echo "Recorded successfully";
+if ($rs) {
+    echo "Recorded successfully";
 }
 
 
@@ -47,7 +52,7 @@ if($rs)
     <a class="button" href="AdminDashboard.html">Go Back</a>
     <div class="maindiv" id="maindiv">
 
-        <form align="center" action="SuperAdmin.php" method="post">
+        <form align="center" action="ConFillTripDetails.php" method="post">
             <div class="title">
 
                 <h2>Enter Trip Incharge Details</h2>
@@ -55,7 +60,7 @@ if($rs)
 
             <div class="info">
 
-            Trip Number: <input type="number" placeholder="Trip Number" name="TripNumber"><br><br>
+                Trip Number: <input type="number" placeholder="Trip Number" name="TripNumber"><br><br>
                 Driver ID: <input type="number" placeholder="Bus Number" name="did"><br><br>
                 ConductorID: <input type="text" placeholder="Source" name="cid"><br><br>
                 Scheduled Departure: <input type="time" placeholder="Destination" name="sdep"><br><br>
@@ -64,7 +69,7 @@ if($rs)
 
             <br>
 
-            <button type="submit" >Submit</button>
+            <button type="submit">Submit</button>
         </form>
     </div>
 </body>
