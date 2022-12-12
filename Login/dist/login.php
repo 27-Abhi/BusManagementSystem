@@ -19,10 +19,10 @@
 
 <body>
 	<nav id="mainNavbar" class="navbar navbar-light navbar-expand-md py-1 px-2 fixed-top" style="background-color: #0cb2f9;">
-	<a class="navbar-brand fw-bold" href="#">
-    	<img src="../../Images/favicon.png" width="40" height="40" class="d-inline-block align-middle" alt="">
+	
+    	<img src="../../Images/favicon.png" width="40" height="40" class="d-inline-block align-bottom" alt="">
     	   BUS MANAGEMENT SYSTEM
-    </a>
+    
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navLinks" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
