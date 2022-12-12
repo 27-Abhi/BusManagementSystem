@@ -22,7 +22,7 @@ if ($conn->connect_error) {
 $db = $conn;
 $tableName = "trip_real_details";
 $columns = ['trip_no_real', 'fuel', 'arrival_time', 'departure_time', 'km_count'];
-$busno = $_GET['BusNumber'];
+//$busno=$_GET['BusNumber'];
 $fetchData = fetch_data($db, $tableName, $columns);
 function fetch_data($db, $tableName, $columns)
 {
@@ -66,7 +66,7 @@ function fetch_data($db, $tableName, $columns)
 <body class="grad" id="grad">
 
   <div class="container" id="Buttondiv">
-    <a type="button" href="AdminDashboard.html" class="btn btn-primary" target="">Back</a>
+    <a type="button" href="AdminDashboard.php" class="btn btn-primary" target="">Back</a>
     <!--Enter target href-->
   </div>
   <div class="container" id="maindiv">
@@ -120,22 +120,6 @@ function fetch_data($db, $tableName, $columns)
                     } ?>
                   </td>
                 </tr>
-                <!-- <tr>
-                  <td>
-                    <?php echo $sn; ?>
-                  </td>
-                  <td>
-
-                    <?php $busNum = $data['bus_no'] ?? '';
-                    if (!$busNum) {
-                      echo "<script>alert('incorrect bus number')</script>";
-                    }
-                    echo $data['bus_no'] ?? ''; ?>
-                  </td>
-                  <td>
-                    <?php echo $data['MILAGE'] ?? ''; ?>
-                  </td>
-                </tr> -->
                 <?php
                     $sn++;
                   }

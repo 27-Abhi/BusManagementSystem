@@ -99,17 +99,37 @@ WHERE bus_no='$busno'";
                   foreach ($fetchData as $data) {
                 ?>
                 <tr>
+
+
+
+
                   <td>
                     <?php echo $sn; ?>
                   </td>
                   <td>
-                    <?php echo $data['bus_no'] ?? ''; ?>
+                    <?php $busNum = $data['bus_no'] ?? '';
+                    if (!$busNum) {
+                      echo "<script>alert('incorrect bus number')</script>";
+                      echo "bus number not found";
+                    } // if empty value fetched from database, echos bus no not found
+                    else {
+                      echo "$busNum";
+                    } ?>
                   </td>
                   <td>
-                    <?php echo $data['revenue'] ?? ''; ?>
+                    <?php if (!$busNum) {
+                      echo "bus number not found";
+                    } else {
+                      echo $data['revenue'] ?? '';
+                    } ?>
                   </td>
                   <td>
-                    <?php echo $data['tickets_sold'] ?? ''; ?>
+                    <?php if (!$busNum) {
+                      echo "bus number not found";
+                    } else {
+                      echo $data['tickets_sold'] ?? '';
+                    }
+                    ?>
                   </td>
                 </tr>
                 <?php
