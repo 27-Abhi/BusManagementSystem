@@ -183,7 +183,7 @@ if ($_SESSION['status'] != "Active") {
         <div class=" left-part">
 
             <h1>Admin Dashboard</h1>
-            <br><br>
+            <br>
 
 
             <div class="">
