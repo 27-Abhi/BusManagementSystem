@@ -17,27 +17,76 @@ $trip_nos = mysqli_query($con, $sql);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" type="image/x-icon" href="../Images/favicon.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    
+    <link rel="stylesheet" type="text/css" href="../Login/dist/style.css">
     <link rel="stylesheet" type="text/css" href="tripDetails.css">
-
+    <style>
+        body {
+            background: url("../Images/bg-dark.jpg") no-repeat center;
+            background-size: cover;
+                      
+        }
+    </style>
+    
     <title>Conductor Trip Details</title>
 </head>
 
-<body id="grad" class="grad">
+<body>
     <!-- <a class="button" href="../Login/dist/index.html">Log Out</a> -->
-    <a class="button" href="conductorDashboard.php">Go Back</a>
-    <div class="maindiv" id="maindiv">
+    <nav id="mainNavbar" class="navbar navbar-light navbar-expand-md py-1 px-2 fixed-top" style="background-color: #0cb2f9;">
+		<a class="navbar-brand" href="#">
+			<img src="../Images/icon.png" width="45" height="35" class="d-inline-block align-middle" alt="">
+			BUS MANAGEMENT SYSTEM
+		</a>
 
-        <form align="center" action="tripconnect.php" method="post">
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navLinks" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-between" id="navLinks">
+
+		
+            <ul class="navbar-nav">
+				<li class="nav-item">
+                    <a href="conductorDashboard.php" class="nav-link">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../about.html" class="nav-link">ABOUT</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../team.html" class="nav-link">TEAM</a>
+                </li>
+				
+				
+            </ul>
+			<span class="nav-item ml-auto">
+                <a class="nav-link" role="button" href="conductorDashboard.php">Go Back</a>
+			</span>
+			<span class="nav-item">
+				<a class="nav-link" role="button" href="../Login/dist/logout.php">Logout</a>
+			</span>
+            
+			
+        </div>
+    </nav>
+
+    <div class="maindiv" id="maindiv" style="width: 25%;">
+
+        <form action="tripconnect.php" method="post">
             <div class="title">
-
-                <h2>Enter Trip Details</h2>
+                <h2 class="text-center">Enter Trip Details</h2>
             </div>
-
+            <br>
             <div class="info">
 
                 <!-- Trip Number: <input type="number" placeholder="Trip Number" name="TripNumber"><br><br> -->
-                <label>Trip Number</label>
-                <select name="TripNumber" placeholder="Trip Number">
+                <div class="form-group">
+                <label>Trip Number:</label>
+                <select class="form-control" name="TripNumber" placeholder="Trip Number">
                     <?php
                     // use a while loop to fetch data
                     // from the $all_categories variable
@@ -62,9 +111,18 @@ $trip_nos = mysqli_query($con, $sql);
                     // While loop must be terminated
                     ?>
                 </select>
-
-                <br><br>Total Revenue: <input type="number" name="totalRevenue" placeholder="Revenue Generated"><br><br>
-                Tickets Sold: <input type="number" name="ticketsSold" placeholder="Total Tickets Sold"><br><br>
+                </div>
+                
+                <div class="form-group">
+                    <label for="PhoneNumber">Total Revenue Generated:</label>
+                    <input class="form-control" type="number" name="totalRevenue" placeholder="Revenue Generated">
+                </div>
+                
+                <div class="form-group">
+                    <label>Total Tickets Sold:</label>
+                    <input class="form-control" type="number" name="ticketsSold" placeholder="Total Tickets Sold">
+                </div>
+                
 
 
             </div>

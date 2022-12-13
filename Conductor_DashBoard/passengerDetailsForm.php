@@ -24,6 +24,7 @@ $trip_nos = mysqli_query($con, $sql);
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="driverDetails.css">
+    <link rel="stylesheet" type="text/css" href="../Login/dist/style.css">
     <style>
         body {
             background: url("../Images/bg-dark.jpg") no-repeat center;
@@ -72,8 +73,8 @@ $trip_nos = mysqli_query($con, $sql);
         </div>
     </nav>
        
-
-    <form class="maindiv" id="maindiv" action="connect.php" method="post" style="width: 30%;">
+    <div class="maindiv" id="maindiv" style="width: 30%; padding:2%;">
+    <form action="connect.php" method="post">
         <div class="title">
             <h2 class="text-center">Enter Passenger Details</h2>
         </div>
@@ -138,11 +139,12 @@ $trip_nos = mysqli_query($con, $sql);
             <input class="form-control" placeholder="Ticket Price" name="Ticketprice" type="number">
             </div>
         </div>
-
+        
+        
 
         <button type="submit">Submit</button>
     </form>
-
+    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
