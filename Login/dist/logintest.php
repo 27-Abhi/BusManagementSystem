@@ -12,9 +12,10 @@
 		history.pushState(null, null, null);
 		window.addEventListener('popstate', function () {
 			history.pushState(null, null, null);
-		});
-		<title>Login</title>
+		}); 
 	</script>
+	<title>Login</title>
+
 </head>
 
 <body>
@@ -138,7 +139,7 @@
 	    }
     }
 
-    ?> 
+    ?>
 
 	<!-- <div>
 		<a class="btn" href="adminlogin.php">Admin</a>
