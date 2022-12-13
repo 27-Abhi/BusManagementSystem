@@ -67,6 +67,106 @@ function fetch_data($db, $tableName, $columns)
     <a type="button" href="AdminDashboard.php" class="btn btn-primary" target="">Back</a>
     <!--Enter target href-->
   </div>
+  <!-- Pie chart code starts here -->
+  <style>
+    .graph {
+      display: flex;
+      margin: auto;
+      padding: 10px;
+      align-items: center;
+    }
+  </style>
+
+  <div class='graph'>
+
+    <?php
+    //$busno = $_GET['BusNumber'];
+    $dataPoints = array();
+    //Best practice is to create a separate file for handling connection to database
+    try {
+      // Creating a new connection.
+      // Replace your-hostname, your-db, your-username, your-password according to your database
+      $link = new \PDO(
+        'mysql:host=localhost;dbname=test4;charset=utf8mb4',
+        //'mysql:host=localhost;dbname=canvasjs_db;charset=utf8mb4',
+        'root',
+        //'root',
+        '',
+        //'',
+        array(
+            \PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            \PDO::ATTR_PERSISTENT => false
+        )
+      );
+
+      $handle = $link->prepare("SELECT bus_no AS x,revenue AS y
+    FROM `RevenuePerBus`");
+      $handle->execute();
+      $result = $handle->fetchAll(\PDO::FETCH_OBJ);
+
+      foreach ($result as $row) {
+        array_push($dataPoints, array("x" => $row->x, "y" => $row->y));
+      }
+      $link = null;
+    } catch (\PDOException $ex) {
+      print($ex->getMessage());
+    }
+
+    ?>
+
+
+    <script>
+      window.onload = function () {
+
+        var chart = new CanvasJS.Chart("chartContainer", {
+          animationEnabled: true,
+          exportEnabled: true,
+          theme: "light2", // "light1", "light2", "dark1", "dark2"
+
+          title: {
+            text: "Revenue"
+          },
+          axisY: {
+            title: "INR"
+          },
+          axisX: {
+            title: "Trip Number"
+          },
+          data: [{
+            indexLabel: "{x}",
+            legendText: "{x}",
+            showInLegend: true,
+            type: "pie", //change type to bar, line, area, pie, etc  
+            dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+	}]
+});
+      chart.render();
+ 
+}
+
+    </script>
+    <style>
+      .chartContainer {
+        display: flex;
+        justify-content: center;
+        vertical-align: middle;
+      }
+    </style>
+
+
+
+    <div id="chartContainer" style="height: 300px; width: 30%;"></div> <!--   container for graphs -->
+    <div id="chartContainer" style="height: 400px; width: 40%;"></div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+  </div>
+
+
+
+
+
+
+  <!-- Pie chart code ends here -->
   <div class="container" id="maindiv">
     <div>
       <div class="col-sm-25">
@@ -77,6 +177,7 @@ function fetch_data($db, $tableName, $columns)
             Search BY: Bus Number: <input type="number" placeholder="Bus Number" name="BusNumber"><br><br>
             <input class="btn btn-primary btn-lg btn-block" type="submit">
           </div>
+
 
 
 
@@ -129,94 +230,6 @@ function fetch_data($db, $tableName, $columns)
       </div>
     </div>
   </div>
-</body>
-
-</html>
-
-
-
-<?php
-//$busno = $_GET['BusNumber'];
-$dataPoints = array();
-//Best practice is to create a separate file for handling connection to database
-try {
-  // Creating a new connection.
-  // Replace your-hostname, your-db, your-username, your-password according to your database
-  $link = new \PDO(
-    'mysql:host=localhost;dbname=test4;charset=utf8mb4',
-    //'mysql:host=localhost;dbname=canvasjs_db;charset=utf8mb4',
-    'root',
-    //'root',
-    '',
-    //'',
-    array(
-        \PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        \PDO::ATTR_PERSISTENT => false
-    )
-  );
-
-  $handle = $link->prepare("SELECT bus_no AS x,revenue AS y
-    FROM `RevenuePerBus`");
-  $handle->execute();
-  $result = $handle->fetchAll(\PDO::FETCH_OBJ);
-
-  foreach ($result as $row) {
-    array_push($dataPoints, array("x" => $row->x, "y" => $row->y));
-  }
-  $link = null;
-} catch (\PDOException $ex) {
-  print($ex->getMessage());
-}
-
-?>
-<!DOCTYPE HTML>
-<html>
-
-<head>
-  <script>
-    window.onload = function () {
-
-      var chart = new CanvasJS.Chart("chartContainer", {
-        animationEnabled: true,
-        exportEnabled: true,
-        theme: "light2", // "light1", "light2", "dark1", "dark2"
-
-        title: {
-          text: "Revenue"
-        },
-        axisY: {
-          title: "INR"
-        },
-        axisX: {
-          title: "Trip Number"
-        },
-        data: [{
-          indexLabel: "{x}",
-          legendText: "{x}",
-          showInLegend: true,
-          type: "pie", //change type to bar, line, area, pie, etc  
-          dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
-	}]
-});
-    chart.render();
- 
-}
-
-  </script>
-  <style>
-    #chartContainer {
-      display: flex;
-      justify-content: center;
-      /*make changes here*/
-
-
-    }
-  </style>
-</head>
-
-<body>
-  <div id="chartContainer" style="height: 400px; width: 30%;"></div> <!--   container for graphs -->
-  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
 
 </html>
