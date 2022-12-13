@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 12, 2022 at 04:25 PM
+-- Generation Time: Dec 13, 2022 at 08:18 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -322,7 +322,8 @@ INSERT INTO `trip_result` (`trip_no_result`, `revenue`, `tickets_sold`) VALUES
 (2, 5000, 60),
 (4, 500, 45),
 (4, 500, 54),
-(1, 10000, 56);
+(1, 10000, 56),
+(1, 5000, 121);
 
 --
 -- Triggers `trip_result`
