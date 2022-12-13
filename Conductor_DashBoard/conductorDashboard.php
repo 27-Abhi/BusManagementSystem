@@ -181,7 +181,7 @@ if ($_SESSION['status'] != "Active") {
 
 <body>
     
-<nav id="mainNavbar" class="navbar navbar-light navbar-expand-md py-1 px-2 fixed-top" style="background-color: #0cb2f9;">
+    <nav id="mainNavbar" class="navbar navbar-light navbar-expand-md py-1 px-2 fixed-top" style="background-color: #0cb2f9;">
 		<a class="navbar-brand" href="#">
 			<img src="../Images/icon.png" width="45" height="35" class="d-inline-block align-middle" alt="">
 			BUS MANAGEMENT SYSTEM
