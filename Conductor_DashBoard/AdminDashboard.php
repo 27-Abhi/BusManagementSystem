@@ -1,8 +1,7 @@
-<?php 
+<?php
 session_start();
 
-if($_SESSION['status']!="Active")
-{
+if ($_SESSION['status'] != "Active") {
     header("location:../Login/dist/login.php");
 }
 
@@ -28,10 +27,10 @@ if($_SESSION['status']!="Active")
     <style>
         .child {
             display: inline-block;
-            margin: -1%;          
-            
+            margin: -1%;
+
         }
-        
+
 
         html,
         body {
@@ -132,7 +131,6 @@ if($_SESSION['status']!="Active")
                 height: auto;
             }
         }
-
     </style>
 </head>
 
@@ -176,41 +174,45 @@ if($_SESSION['status']!="Active")
         <div>
             <img src="https://cdn-icons-png.flaticon.com/512/3281/3281355.png">
 
-            
-            <h3>Username:<?php $_SESSION['username'] ?></h3>
-                        
+
+            <h3>Username:
+                <?php $_SESSION['username'] ?>
+            </h3>
+
         </div>
         <div class=" left-part">
 
             <h1>Admin Dashboard</h1>
             <br><br>
 
-            
+
             <div class="">
                 <h3>Admin actions</h3>
                 <a class="btn btn-item btn-block" style="width: 50%;" href="AddCon.php">Add Conductor</a>
                 <a class="btn btn-item btn-block" style="width: 50%;" href="AddDri.php">Add Driver</a>
-                <a class="btn btn-item btn-block" style="width: 50%;" href="SuAdminAddTrip.html">Enter Bus Details</a>
+                <a class="btn btn-item btn-block" style="width: 50%;" href="SuperAdmin.php">Enter Bus Details</a>
                 <!-- <a class="btn-item" href="ConFillTripDetails.html">Trip Incharge</a> -->
             </div>
 
             <br><br><br>
 
             <div class="parent">
-            
+
                 <div class="child">
-                <h3>Triggers</h3>
+                    <h3>Triggers</h3>
                     <a class="btn btn-item btn-block" style="width: 50%;" href="AllBusRevenue.php">Revenue Generated</a>
-                    <a class="btn btn-item btn-block" style="width: 50%;" href="LossMakingTriggerDisplay.php">Loss making Buses</a>
+                    <a class="btn btn-item btn-block" style="width: 50%;" href="LossMakingTriggerDisplay.php">Loss
+                        making Buses</a>
                 </div>
-                
+
                 <div class="child">
-                <h3>Views</h3>
+                    <h3>Views</h3>
                     <a class="btn btn-item btn-block" style="width: 50%;" href="Milage.php">Bus Mileage</a>
-                    <a class="btn btn-item btn-block" style="width: 50%;" href="quicktripsTriggerDisplay.php">Quick Trips</a>
+                    <a class="btn btn-item btn-block" style="width: 50%;" href="quicktripsTriggerDisplay.php">Quick
+                        Trips</a>
                 </div>
-            </div>    
-                
+            </div>
+
         </div>
 
     </div>
