@@ -2,7 +2,8 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Kadamba Bus Management System</title>
+	<title>Bus Management System</title>
+	<link rel="icon" type="image/x-icon" href="../../Images/favicon.ico">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
@@ -58,7 +59,7 @@
 		<div class="container__form container--signup">
 			<form action="" class="form" method="POST">
 				<input type="text" name="username" class="input" placeholder="Enter your username">
-				<input type="password" class="input" name="password" placeholder="Enter your password">
+				<input type="password" class="input" name="password" placeholder="Enter your password"><br>
 				<input type="submit" name="loginC" value="login" class='btn'>
 			</form>
 		</div>
@@ -67,7 +68,7 @@
 		<div class="container__form container--signin">
 			<form action="" method="POST" class='form'>
 				<input type="text" name="username" class="input" placeholder="Enter your username">
-				<input type="password" name="password" class="input" placeholder="Enter your password">
+				<input type="password" name="password" class="input" placeholder="Enter your password"><br>
 				<input type="submit" name="loginD" value="login" class='btn'>
 			</form>
 		</div>
