@@ -257,7 +257,9 @@ if ($_SESSION['status'] != "Active") {
                         FROM (`bus_details` join `trip_incharge` on(`trip_incharge`.`trip_no_incharge` = `bus_details`.`trip_no`))
                         WHERE `Conductor_emp_id`='$conID'
                         ORDER BY TripDate DESC
-                        LIMIT 1;"); //take code from specificRevenue.php-->
+                        LIMIT 1;");
+
+                        //take code from specificRevenue.php-->
                         //$query="SELECT * FROM Milage ORDER BY DESC";
 //$db->query($query1);
                 
@@ -275,11 +277,15 @@ if ($_SESSION['status'] != "Active") {
                         }
                     }
                     return $msg;
-                }
+                } {
+                    foreach ((array) $fetchData as $data) {
+                        $chk = $data['bus_no'] ?? '';
+                        if (!$chk) {
+                ?>Welcome! No trips Assigned Yet!
+                <?php
+                        } else {
                 ?>
 
-                <?php
-                foreach ($fetchData as $data) { ?>
                 Welcome! Your Latest Trip ID for
                 <?php echo $data['TripDate'] ?? ''; ?> is
                 <?php echo $data['trip_no'] ?? ''; ?>
@@ -288,6 +294,8 @@ if ($_SESSION['status'] != "Active") {
 
 
                 <?php
+                        }
+                    }
                 } ?>
 
             </h4>
