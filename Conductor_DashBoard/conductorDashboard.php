@@ -280,10 +280,9 @@ if ($_SESSION['status'] != "Active") {
 
                 <?php
                 foreach ($fetchData as $data) { ?>
-                Welcome! Your Latest Trip ID for
-                <?php echo $data['TripDate'] ?? ''; ?> is
-                <?php echo $data['trip_no'] ?? ''; ?>
-                & Bus number is
+                Latest Trip ID (<?php echo $data['TripDate'] ?? ''; ?>): 
+                <?php echo $data['trip_no'] ?? ''; ?> <br>
+                Bus number: 
                 <?php echo $data['bus_no'] ?? ''; ?>
 
 
