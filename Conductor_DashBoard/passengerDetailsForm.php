@@ -37,7 +37,7 @@ $trip_nos = mysqli_query($con, $sql);
 <body>
 
     <nav id="mainNavbar" class="navbar navbar-light navbar-expand-md py-1 px-2 fixed-top" style="background-color: #0cb2f9;">
-		<a class="navbar-brand" href="#">
+		<a class="navbar-brand" href="conductorDashboard.php">
 			<img src="../Images/icon.png" width="45" height="35" class="d-inline-block align-middle" alt="">
 			BUS MANAGEMENT SYSTEM
 		</a>
@@ -74,76 +74,76 @@ $trip_nos = mysqli_query($con, $sql);
     </nav>
        
     <div class="maindiv" id="maindiv" style="width: 30%; padding:2%;">
-    <form action="connect.php" method="post">
-        <div class="title">
-            <h2 class="text-center">Enter Passenger Details</h2>
-        </div>
-        <br>
-        <div class="info">
-            <!--<input type="date" placeholder="Trip Date" name="date">!-->
-            <!-- Trip Number: <input type="number" placeholder="Trip Number" name="TripNumber"><br><br> -->
-            <div class="form-group">
-            <label>Trip Number:</label>
-            <select class="form-control" name="TripNumber" placeholder="Trip Number">
-                <?php
-                // use a while loop to fetch data
-                // from the $all_categories variable
-                // and individually display as an option
-                while (
-                    $bus_details = mysqli_fetch_array(
-                        $trip_nos,
-                    MYSQLI_ASSOC
-                    )
-                ):
-                    ;
-                ?>
-                <option value="<?php echo $bus_details["trip_no"];
-                    // The value we usually set is the primary key
-                ?>">
-                    <?php echo $bus_details["trip_no"];
-                    // To show the category name to the user
+        <form action="connect.php" method="post">
+            <div class="title">
+                <h2 class="text-center">Enter Passenger Details</h2>
+            </div>
+            <br>
+            <div class="info">
+                <!--<input type="date" placeholder="Trip Date" name="date">!-->
+                <!-- Trip Number: <input type="number" placeholder="Trip Number" name="TripNumber"><br><br> -->
+                <div class="form-group">
+                <label>Trip Number:</label>
+                <select class="form-control" name="TripNumber" placeholder="Trip Number">
+                    <?php
+                    // use a while loop to fetch data
+                    // from the $all_categories variable
+                    // and individually display as an option
+                    while (
+                        $bus_details = mysqli_fetch_array(
+                            $trip_nos,
+                        MYSQLI_ASSOC
+                        )
+                    ):
+                        ;
                     ?>
-                </option>
-                <?php
-                endwhile;
-                // While loop must be terminated
-                ?>
-            </select>
-            </div>
+                    <option value="<?php echo $bus_details["trip_no"];
+                        // The value we usually set is the primary key
+                    ?>">
+                        <?php echo $bus_details["trip_no"];
+                        // To show the category name to the user
+                        ?>
+                    </option>
+                    <?php
+                    endwhile;
+                    // While loop must be terminated
+                    ?>
+                </select>
+                </div>
 
-            <div class="form-group">
-                <label for="PhoneNumber">Phone Number</label>
-                <input class="form-control" type="number" id="tel" name="PhoneNumber" placeholder="Phone Number">
-            </div>
-          
-            <div class="form-group">
-                <label>Select Source Bus stop: </label>
-                <input class="form-control" type="text" name="sourceChoice" placeholder="Source bus stop">
-                <!-- <select name="sourceChoice" placeholder="Source bus stop">
-                    <option value="first">Vasco</option>
-                    <option value="second" selected>Verna</option>
+                <div class="form-group">
+                    <label for="PhoneNumber">Phone Number</label>
+                    <input class="form-control" type="number" id="tel" name="PhoneNumber" placeholder="Phone Number">
+                </div>
+            
+                <div class="form-group">
+                    <label>Select Source Bus stop: </label>
+                    <input class="form-control" type="text" name="sourceChoice" placeholder="Source bus stop">
+                    <!-- <select name="sourceChoice" placeholder="Source bus stop">
+                        <option value="first">Vasco</option>
+                        <option value="second" selected>Verna</option>
+                        <option value="third">Margao</option>
+                    </select><br><br> -->
+                </div>
+                <div class="form-group">
+                <label>Select Destination Bus stop: </label>
+                <input class="form-control" type="text" name="destinationChoice" placeholder="Destination bus stop">
+                <!-- <select name="destinationChoice" placeholder="Destination bus stop">
+                    <option value="first" selected>Vasco</option>
+                    <option value="second">Verna</option>
                     <option value="third">Margao</option>
                 </select><br><br> -->
+                </div>
+                <div class="form-group">
+                <label>Ticket Price: </label>
+                <input class="form-control" placeholder="Ticket Price" name="Ticketprice" type="number">
+                </div>
             </div>
-            <div class="form-group">
-            <label>Select Destination Bus stop: </label>
-            <input class="form-control" type="text" name="destinationChoice" placeholder="Destination bus stop">
-            <!-- <select name="destinationChoice" placeholder="Destination bus stop">
-                <option value="first" selected>Vasco</option>
-                <option value="second">Verna</option>
-                <option value="third">Margao</option>
-            </select><br><br> -->
-            </div>
-            <div class="form-group">
-            <label>Ticket Price: </label>
-            <input class="form-control" placeholder="Ticket Price" name="Ticketprice" type="number">
-            </div>
-        </div>
-        
-        
+            
+            
 
-        <button type="submit">Submit</button>
-    </form>
+            <button type="submit">Submit</button>
+        </form>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

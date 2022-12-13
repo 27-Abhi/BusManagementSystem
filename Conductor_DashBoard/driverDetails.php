@@ -21,17 +21,27 @@ $trip_nos = mysqli_query($con, $sql);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Trip Details</title>
     <link rel="icon" type="image/x-icon" href="../Images/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="driverDetails.css">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="driverDetails.css">
+    <link rel="stylesheet" type="text/css" href="../Login/dist/style.css">
+    <style>
+        body {
+            background: url("../Images/bg-dark.jpg") no-repeat center;
+            background-size: cover;
+                      
+        }
+    </style>
 </head>
 
-<body id="grad" class="grad">
+<body>
 <nav id="mainNavbar" class="navbar navbar-light navbar-expand-md py-1 px-2 fixed-top" style="background-color: #0cb2f9;">
-		<a class="navbar-brand" href="#">
-			<img src="../../Images/icon.png" width="45" height="35" class="d-inline-block align-middle" alt="">
+		<a class="navbar-brand" href="Driver_Dashboard.php">
+			<img src="../Images/icon.png" width="45" height="35" class="d-inline-block align-middle" alt="">
 			BUS MANAGEMENT SYSTEM
 		</a>
 
@@ -44,79 +54,94 @@ $trip_nos = mysqli_query($con, $sql);
 		
             <ul class="navbar-nav">
 				<li class="nav-item">
-                    <a href="login.php" class="nav-link">HOME</a>
+                    <a href="Driver_Dashboard.php" class="nav-link">HOME</a>
                 </li>
                 <li class="nav-item">
-                    <a href="../../about.html" class="nav-link">ABOUT</a>
+                    <a href="../about.html" class="nav-link">ABOUT</a>
                 </li>
                 <li class="nav-item">
-                    <a href="../../team.html" class="nav-link">TEAM</a>
+                    <a href="../team.html" class="nav-link">TEAM</a>
                 </li>
 				
 				
             </ul>
-			
-			<span class="nav-item">
-				<a class="nav-link" role="button" href="adminlogin.php">Admin Login</a>
+			<span class="nav-item ml-auto">
+                <a class="nav-link" role="button" href="Driver_Dashboard.php">Go Back</a>
 			</span>
+			<span class="nav-item">
+				<a class="nav-link" role="button" href="../Login/dist/logout.php">Logout</a>
+			</span>
+            
 			
         </div>
     </nav>
+    
+    <div class="maindiv" id="maindiv" style="width: 30%; padding:2%;">
 
-    <a class="button" href="../Conductor_DashBoard/Driver_DashBoard.php">Go Back</a>
-
-    <div class="maindiv" id="maindiv">
-
-        <form align="center" action="dconnect.php" method="post">
+        <form action="dconnect.php" method="post">
             <div id="title" class="title">
 
-                <h2>Enter Trip Details</h2>
+                <h2 class="text-center">Enter Trip Details</h2>
             </div>
-
+            <br>
             <div id="info" class="info">
 
-                Trip Number: <select name="TripNumber" placeholder="Trip Number">
-                    <?php
-                    // use a while loop to fetch data
-                    // from the $all_categories variable
-                    // and individually display as an option
-                    while (
-                        $bus_details = mysqli_fetch_array(
-                            $trip_nos,
-                        MYSQLI_ASSOC
-                        )
-                    ):
-                        ;
-                    ?>
-                    <option value="<?php echo $bus_details["trip_no"];
-                        // The value we usually set is the primary key
-                    ?>">
-                        <?php echo $bus_details["trip_no"];
-                        // To show the category name to the user
+                <div class="form-group">
+                    <label>Trip Number:</label> 
+                    <select class="form-control" name="TripNumber" placeholder="Trip Number">
+                        <?php
+                        // use a while loop to fetch data
+                        // from the $all_categories variable
+                        // and individually display as an option
+                        while (
+                            $bus_details = mysqli_fetch_array(
+                                $trip_nos,
+                            MYSQLI_ASSOC
+                            )
+                        ):
+                            ;
                         ?>
-                    </option>
-                    <?php
-                    endwhile;
-                    // While loop must be terminated
-                    ?>
-                </select><br><br>
+                        <option value="<?php echo $bus_details["trip_no"];
+                            // The value we usually set is the primary key
+                        ?>">
+                            <?php echo $bus_details["trip_no"];
+                            // To show the category name to the user
+                            ?>
+                        </option>
+                        <?php
+                        endwhile;
+                        // While loop must be terminated
+                        ?>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label> Fuel consumed: </label>
+                    <input class="form-control" type="number" name="fuelConsumption"
+                        placeholder="Fuel consumed">
+                </div>
 
-                Fuel consumed: <input class="signup-text-input" type="number" name="fuelConsumption"
-                    placeholder="Fuel consumed" /><br><br>
-
-                Actual Arrival Time: <input class="signup-text-input" type="time" name="actualArrivalTime"
-                    placeholder="Actual Arrival Time" /><br><br>
-
-                Actual Departure Time: <input type="time" class="signup-text-input" name="actualDepTime"
-                    placeholder="Actual Departure Time" /><br><br>
-
-                Kilometer Count: <input name="kmCount" class="signup-text-input" placeholder="Kilometer count"
-                    type="number" /><br><br>
+                <div class="form-group">
+                    <label> Actual Arrival Time: </label>
+                    <input class="form-control" type="time" name="actualArrivalTime"
+                    placeholder="Actual Arrival Time">
+                </div>
+               
+                <div class="form-group">
+                    <label>Actual Departure Time: </label>
+                    <input type="time" class="form-control" name="actualDepTime"
+                    placeholder="Actual Departure Time" />
+                </div>
+                <div class="form-group">
+                    <label> Kilometer Count: </label>
+                    <input name="kmCount" class="form-control" placeholder="Kilometer count"
+                    type="number" />
+                </div>
 
             </div>
 
 
-            <button type="submit" href="/">Submit</button>
+            <button type="submit">Submit</button>
         </form>
     </div>
 
