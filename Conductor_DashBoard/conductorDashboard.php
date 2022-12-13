@@ -286,10 +286,18 @@ if ($_SESSION['status'] != "Active") {
                         } else {
                 ?>
 
+<<<<<<< HEAD
                 Welcome! Your Latest Trip ID for
                 <?php echo $data['TripDate'] ?? ''; ?> is
                 <?php echo $data['trip_no'] ?? ''; ?>
                 & Bus number is
+=======
+                <?php
+                foreach ($fetchData as $data) { ?>
+                Latest Trip ID (<?php echo $data['TripDate'] ?? ''; ?>): 
+                <?php echo $data['trip_no'] ?? ''; ?> <br>
+                Bus number: 
+>>>>>>> 0dd82a726ddd07dc339501d49aa9e1e84809f841
                 <?php echo $data['bus_no'] ?? ''; ?>
 
 
@@ -326,6 +334,23 @@ if ($_SESSION['status'] != "Active") {
         </div>
 
     </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+    <script>
+        $(function () {
+            $(document).scroll(function () {
+                var $nav = $("#mainNavbar");
+                $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
+            });
+        });
+    </script>
 </body>
 <!-- $conID = $_SESSION['username'];
             $result = $conn->query("SELECT `bus_details`.`trip_no`,`bus_details`.`bus_no` AS `bus_no`, `bus_details`.`Source` AS `Source`,`bus_details`.`Destination` AS `Destination`,`bus_details`.`TripDate` AS `TripDate`,`trip_incharge`.`Driver_emp_id` AS `Driver_emp_id`,`trip_incharge`.`scheduled_dept_time` AS `scheduled_dept_time`,`trip_incharge`.`scheduled_arr_time` AS `scheduled_arr_time`
