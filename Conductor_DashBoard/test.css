@@ -2,7 +2,7 @@
     background-image: linear-gradient(to bottom right, #fcee21, #009245);
 }
 
-input[type=number] {
+/*input[type=number] {
     padding: 10px;
     margin: 20px 0;
     border-radius: 10px;
@@ -22,7 +22,7 @@ input[type=text] {
     margin: 10px 0;
     border-radius: 10px;
     box-shadow: 5px 5px 5px #aaaaaa;
-}
+}*/
 
 
 button {
