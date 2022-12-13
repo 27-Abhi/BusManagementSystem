@@ -11,9 +11,18 @@ if ($_SESSION['status'] != "Active") {
 
 <head>
     <title>Conductor Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="../Images/favicon.ico">
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
         integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+	
+	<link rel="stylesheet" href="../Login/dist/style.css">
+    
+
     <style>
         html,
         body {
@@ -37,6 +46,7 @@ if ($_SESSION['status'] != "Active") {
         body {
             background: url("https://ktclgoa.com/wp-content/uploads/2022/04/KTCL-Bus-1.jpeg") no-repeat center;
             background-size: cover;
+            
         }
 
         h1,
@@ -68,10 +78,7 @@ if ($_SESSION['status'] != "Active") {
             text-align: center;
         }
 
-        .fa-graduation-cap {
-            font-size: 72px;
-        }
-
+        
         form {
             background: rgba(0, 0, 0, 0.7);
         }
@@ -168,11 +175,47 @@ if ($_SESSION['status'] != "Active") {
             }
         }
     </style>
+
+    
 </head>
 
 <body>
+    
+<nav id="mainNavbar" class="navbar navbar-light navbar-expand-md py-1 px-2 fixed-top" style="background-color: #0cb2f9;">
+		<a class="navbar-brand" href="#">
+			<img src="../Images/icon.png" width="45" height="35" class="d-inline-block align-middle" alt="">
+			BUS MANAGEMENT SYSTEM
+		</a>
 
-    <div class="main-block">
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navLinks" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-between" id="navLinks">
+
+		
+            <ul class="navbar-nav">
+				<li class="nav-item">
+                    <a href="conductorDashboard.php" class="nav-link">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../about.html" class="nav-link">ABOUT</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../team.html" class="nav-link">TEAM</a>
+                </li>
+				
+				
+            </ul>
+			
+			<span class="nav-item">
+				<a class="nav-link" role="button" href="../Login/dist/logout.php">Logout</a>
+			</span>
+			
+        </div>
+    </nav>
+
+    <div class="main-block" style="width: 100%; margin: 0 auto; height: 100%;">
         <div>
             <img src="https://cdn-icons-png.flaticon.com/512/2798/2798177.png">
 
@@ -180,22 +223,26 @@ if ($_SESSION['status'] != "Active") {
                 <?php echo $_SESSION['username'] ?>
             </h3>
             <h3>Bus Number: </h3>
-            <a class="btn-item" type="" href="../Login/dist/logout.php">Log Out</a>
-
         </div>
 
-        <div class=" left-part">
+        <div class="left-part">
 
             <h1>Conductor Dashboard</h1>
+            <br><br><br><br>
 
-            <div class="btn-group">
-                <a class="btn-item" href="passengerDetailsForm.php">Enter Passenger Details</a>
-                <a class="btn-item" href="tripDetailsForm.php">Enter Trip Details</a>
+            <h3>Enter Details</h3>
+            
+            <div class="">
+                
+                <a class="btn btn-item btn-block" style="width: 50%;" href="passengerDetailsForm.php">Enter Passenger Details</a>
+                <br>
+                <a class="btn btn-item btn-block" style="width: 50%;" href="tripDetailsForm.php">Enter Trip Details</a>
             </div>
 
-            <br>
-            <div class="btn-group">
-                <a class="btn-item" href="ConTripView.php">Assigned Trips</a>
+            <br><br><br>
+            <h3>Your Schedule</h3>
+            <div class="">
+                <a class="btn btn-item btn-block" style="width: 25%;" href="ConTripView.php">Assigned Trips</a>
             </div>
 
 
