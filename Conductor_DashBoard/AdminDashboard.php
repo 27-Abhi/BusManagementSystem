@@ -176,7 +176,7 @@ if ($_SESSION['status'] != "Active") {
 
 
             <h3>Username:
-                <?php $_SESSION['username'] ?>
+                <?php echo $_SESSION['username'] ?>
             </h3>
 
         </div>
@@ -190,7 +190,7 @@ if ($_SESSION['status'] != "Active") {
                 <h3>Admin actions</h3>
                 <a class="btn btn-item btn-block" style="width: 50%;" href="AddCon.php">Add Conductor</a>
                 <a class="btn btn-item btn-block" style="width: 50%;" href="AddDri.php">Add Driver</a>
-                <a class="btn btn-item btn-block" style="width: 50%;" href="SuperAdmin.php">Enter Bus Details</a>
+                <a class="btn btn-item btn-block" style="width: 50%;" href="SuAdminAddTrip.php">Enter Bus Details</a>
                 <!-- <a class="btn-item" href="ConFillTripDetails.html">Trip Incharge</a> -->
             </div>
 
