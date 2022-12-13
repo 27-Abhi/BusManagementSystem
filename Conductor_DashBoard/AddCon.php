@@ -1,8 +1,9 @@
-<?php 
+<?php
+
+//TEST IF AddCon.php is in main branch
 session_start();
 
-if($_SESSION['status']!="Active")
-{
+if ($_SESSION['status'] != "Active") {
     header("location:../Login/dist/login.php");
 }
 
@@ -46,11 +47,11 @@ if($_SESSION['status']!="Active")
 // database connection code
 // $con = mysqli_connect('localhost', 'database_user', 'database_password','database');
 
-$con = mysqli_connect('localhost', 'root', '','test4');
+$con = mysqli_connect('localhost', 'root', '', 'test4');
 
 // get the post records
-$pwd= $_POST['pwd'];
-$cid= $_POST['Cid'];
+$pwd = $_POST['pwd'];
+$cid = $_POST['Cid'];
 
 
 
@@ -62,9 +63,8 @@ $sql = "INSERT INTO `login`(`user_name`,`password`)
 // insert in database 
 $rs = mysqli_query($con, $sql);
 
-if($pwd!='')
-{
-	echo "<script>alert('Conductor ADDED!')</script>";
+if ($pwd != '') {
+    echo "<script>alert('Conductor ADDED!')</script>";
 }
 
 
