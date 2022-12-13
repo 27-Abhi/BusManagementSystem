@@ -66,7 +66,7 @@ WHERE bus_no='$busno'";
 <body class="grad" id="grad">
 
   <div class="container" id="Buttondiv">
-    <a type="button" href="AdminDashboard.php" class="btn btn-primary" target="">Back</a>
+    <a type="button" href="milageBusNo.php" class="btn btn-primary" target="">Back</a>
 
   </div>
   <div class="container" id="maindiv">

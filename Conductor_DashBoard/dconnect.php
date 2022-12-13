@@ -5,7 +5,7 @@ if ($_SESSION['status'] != "Active") {
     header("location:../Login/dist/login.php");
 }
 
-?>
+
 
 // database connection code
 // $con = mysqli_connect('localhost', 'database_user', 'database_password','database');
@@ -35,7 +35,7 @@ VALUES('$TripNumber', '$fuelConsumption', '$actualArrivalTime', '$actualDepTime'
 $rs = mysqli_query($con, $sql);
 
 if ($rs) {
-echo "Records Inserted";
+    echo "Records Inserted";
 }
 
 
@@ -54,7 +54,7 @@ echo "Records Inserted";
 
 <body id="grad" class="grad">
 
-    <a class="button" href="../Login/dist/index.html">Log Out</a>
+    <a class="button" href="../Login/dist/login.php">Log Out</a>
 
     <div class="maindiv" id="maindiv">
 

@@ -3,12 +3,12 @@
 // database connection code
 // $con = mysqli_connect('localhost', 'database_user', 'database_password','database');
 
-$con = mysqli_connect('localhost', 'root', '','test4');
+$con = mysqli_connect('localhost', 'root', '', 'test4');
 
 // get the post records
-$TripNumber= $_POST['TripNumber'];
-$totalRevenue= $_POST['totalRevenue'];
-$ticketsSold= $_POST['ticketsSold'];
+$TripNumber = $_POST['TripNumber'];
+$totalRevenue = $_POST['totalRevenue'];
+$ticketsSold = $_POST['ticketsSold'];
 
 
 // database insert SQL code
@@ -19,9 +19,8 @@ $sql = "INSERT INTO `trip_result`(`trip_no_result`, `revenue`, `tickets_sold`)
 // insert in database 
 $rs = mysqli_query($con, $sql);
 
-if($rs)
-{
-	echo "Recorded successfully";
+if ($rs) {
+    echo "Recorded successfully";
 }
 
 
@@ -40,8 +39,8 @@ if($rs)
 </head>
 
 <body id="grad" class="grad">
-    <a class="button" href="../Login/dist/index.html">Log Out</a>
-    <a class="button" href="conductorDashboard.html">Go Back</a>
+    <a class="button" href="../Login/dist/logout.php">Log Out</a>
+    <a class="button" href="conductorDashboard.php">Go Back</a>
     <div class="maindiv" id="maindiv">
 
         <form align="center" action="tripconnect.php" method="post">

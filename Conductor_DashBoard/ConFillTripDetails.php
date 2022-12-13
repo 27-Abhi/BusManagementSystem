@@ -48,8 +48,8 @@ if ($rs) {
 </head>
 
 <body id="grad" class="grad">
-    <a class="button" href="../Login/dist/index.html">Log Out</a>
-    <a class="button" href="AdminDashboard.html">Go Back</a>
+    <a class="button" href="../Login/dist/login.php">Log Out</a>
+    <a class="button" href="AdminDashboard.php">Go Back</a>
     <div class="maindiv" id="maindiv">
 
         <form align="center" action="ConFillTripDetails.php" method="post">
