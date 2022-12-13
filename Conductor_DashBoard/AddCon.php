@@ -1,6 +1,6 @@
 <?php
 
-//TEST IF AddCon.php is in main branch
+
 session_start();
 
 if ($_SESSION['status'] != "Active") {
