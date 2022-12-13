@@ -2,11 +2,12 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Kadamba Bus Management System</title>
+	<title>Bus Management System</title>
+	<link rel="icon" type="image/x-icon" href="../../Images/favicon.ico">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-	<link rel="stylesheet" href="./style.css">
+	
 	<link rel="stylesheet" href="style.css">
 	<script>
 		history.pushState(null, null, null);
@@ -19,34 +20,46 @@
 
 <body>
 	<nav id="mainNavbar" class="navbar navbar-light navbar-expand-md py-1 px-2 fixed-top" style="background-color: #0cb2f9;">
-	<a class="navbar-brand fw-bold" href="#">
-    	<img src="../../Images/favicon.png" width="40" height="40" class="d-inline-block align-middle" alt="">
-    	   BUS MANAGEMENT SYSTEM
-    </a>
+		<a class="navbar-brand" href="#">
+			<img src="../../Images/icon.png" width="45" height="35" class="d-inline-block align-middle" alt="">
+			BUS MANAGEMENT SYSTEM
+		</a>
+
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navLinks" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navLinks">
+
+        <div class="collapse navbar-collapse justify-content-between" id="navLinks">
+
+		
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a href="" class="nav-link">HOME</a>
+				<li class="nav-item">
+                    <a href="login.php" class="nav-link">HOME</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">ABOUT</a>
+                    <a href="../../about.html" class="nav-link">ABOUT</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">TICKETS</a>
+                    <a href="../../team.html" class="nav-link">TEAM</a>
                 </li>
+				
+				
             </ul>
+			
+			<span class="nav-item">
+				<a class="nav-link" role="button" href="adminlogin.php">Admin Login</a>
+			</span>
+			
         </div>
     </nav>
 
 	<div class="container right-panel-active">
 		<!-- Conductor Login -->
+		
 		<div class="container__form container--signup">
 			<form action="" class="form" method="POST">
 				<input type="text" name="username" class="input" placeholder="Enter your username">
-				<input type="password" class="input" name="password" placeholder="Enter your password">
+				<input type="password" class="input" name="password" placeholder="Enter your password"><br>
 				<input type="submit" name="loginC" value="login" class='btn'>
 			</form>
 		</div>
@@ -55,7 +68,7 @@
 		<div class="container__form container--signin">
 			<form action="" method="POST" class='form'>
 				<input type="text" name="username" class="input" placeholder="Enter your username">
-				<input type="password" name="password" class="input" placeholder="Enter your password">
+				<input type="password" name="password" class="input" placeholder="Enter your password"><br>
 				<input type="submit" name="loginD" value="login" class='btn'>
 			</form>
 		</div>
@@ -76,9 +89,9 @@
 	<!-- partial -->
 	<script src="./script.js"></script>
 
-	<div>
+	<!-- <div>
 		<a class="btn" href="adminlogin.php">Admin</a>
-	</div>
+	</div>-->
 	<!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -96,6 +109,7 @@
             });
         });
     </script>
+	
 
 	<?php
     if (isset($_POST['loginC'])) {
