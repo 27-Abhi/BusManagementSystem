@@ -86,7 +86,7 @@ if ($_SESSION['status'] != "Active") {
                     <input class="form-control" type="text" placeholder="Password" name="pwd">
                 </div>
                 <br>
-                <button class="btn-item btn-block" style="width: 100%;" type="submit">Submit</button>
+                <button class="btn-item btn-block" style="width: 100%;" name='sub' type="submit">Submit</button>
             </div>
         </form>
     </div>
@@ -96,28 +96,28 @@ if ($_SESSION['status'] != "Active") {
 
 // database connection code
 // $con = mysqli_connect('localhost', 'database_user', 'database_password','database');
+if (isset($_POST['sub'])) {
+    $con = mysqli_connect('localhost', 'root', '', 'test4');
 
-$con = mysqli_connect('localhost', 'root', '', 'test4');
-
-// get the post records
-$pwd = $_POST['pwd'];
-$did = $_POST['did'];
+    // get the post records
+    $pwd = $_POST['pwd'];
+    $did = $_POST['did'];
 
 
 
-// database insert SQL code
+    // database insert SQL code
 
-$sql = "INSERT INTO `login_driver`(`user_name`,`password`) 
+    $sql = "INSERT INTO `login_driver`(`user_name`,`password`) 
   VALUES('$did', '$pwd')";
 
-// insert in database 
-$rs = mysqli_query($con, $sql);
+    // insert in database 
+    $rs = mysqli_query($con, $sql);
 
-if ($pwd != '') {
-    echo "<script>alert('Driver ADDED!')</script>";
+    if ($pwd != '') {
+        echo "<script>alert('Driver ADDED!')</script>";
+    }
+
 }
-
-
 ?>
 
 </html>
