@@ -52,7 +52,8 @@ $sql = "INSERT INTO `trip_incharge`(`trip_no_incharge`,`Driver_emp_id`, `Conduct
 $rs = mysqli_query($con, $sql);
 
 //echo "<script>alert("Recorded successfully. Your trip Number is";)</script>";
-echo "Trip number generated Successfully. Trip Number is '{$tripNO}'"; //DIsplay properly
+
+echo "<p style='color:#EA1C2C;margin:70px 0px 0px 0px;'>Trip number generated Successfully. Trip Number is '{$tripNO}'.</p>";
 
 ?>
 

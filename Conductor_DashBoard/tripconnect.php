@@ -26,7 +26,8 @@ $sql1 = "INSERT INTO `trip_result`(`trip_no_result`, `revenue`, `tickets_sold`)
 $rs = mysqli_query($con, $sql1);
 
 if ($rs) {
-    echo "Recorded successfully";
+    echo "<p style='color:#EA1C2C;margin:70px 0px 0px 0px;'>Recorded successfully.</p>";
+    
 }
 
 $conid = $_SESSION['username'];

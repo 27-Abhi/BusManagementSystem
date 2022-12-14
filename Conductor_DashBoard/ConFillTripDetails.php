@@ -28,7 +28,7 @@ $sql = "INSERT INTO `trip_incharge`(`trip_no_incharge`,`Driver_emp_id`, `Conduct
 $rs = mysqli_query($con, $sql);
 
 if ($rs) {
-    echo "<p style='color:red;'>Recorded successfully.</p>";
+    echo "<p style='color:#EA1C2C;margin:70px 0px 0px 0px;'>Recorded successfully.</p>";
 }
 
 

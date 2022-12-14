@@ -250,7 +250,7 @@ function fetch_data($db, $tableName, $columns)
                         <td>
                           <?php $busNum = $data['bus_no'] ?? '';
                           if (!$busNum) {
-                            echo "bus number not found";
+                            echo "Bus number not found";
                           } // if empty value fetched from database, echos bus no not found
                           else {
                             echo "$busNum";
@@ -258,7 +258,7 @@ function fetch_data($db, $tableName, $columns)
                         </td>
                         <td>
                           <?php if (!$busNum) {
-                            echo "bus number not found";
+                            echo "Bus number not found";
                           } else {
                             echo $data['MILAGE'] ?? '';
                           } ?>
