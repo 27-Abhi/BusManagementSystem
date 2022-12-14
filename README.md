@@ -32,6 +32,7 @@ Similarly When the driver logs in, he can see the trip number, as well as the bu
 The driver can enter trip information such as fuel consumed, actual arrival and departure times, and kilometres driven.
 
 
+Import the SQL File on phpMyAdmin first.
 
 Admin Credentials:
 username:admin
