@@ -3,23 +3,27 @@ h2 {
 }
 
 input[type=number] {
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 10px;
+    padding: 5px;
+    margin: 5px 0 border-radius: 10px;
     box-shadow: 5px 5px 5px #aaaaaa;
 }
 
 input[type=time] {
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 10px;
+    padding: 5px;
+    margin: 5px 0 border-radius: 10px;
     box-shadow: 5px 5px 5px #aaaaaa;
 }
 
 input[type=text] {
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 10px;
+    padding: 5px;
+    margin: 5px 0 border-radius: 10px;
+    box-shadow: 5px 5px 5px #aaaaaa;
+}
+
+input[type=date] {
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: 15px;
     box-shadow: 5px 5px 5px #aaaaaa;
 }
 
