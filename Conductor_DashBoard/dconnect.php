@@ -66,7 +66,7 @@ if ($rs) {
 
             <div id="info" class="info">
 
-                Trip Number:<select name="TripNumber" placeholder="Trip Number">
+                Trip Number:<select name="TripNumber" placeholder="Trip Number" required>
                     <?php
                     // use a while loop to fetch data
                     // from the $all_categories variable
@@ -93,16 +93,16 @@ if ($rs) {
                 </select>
 
                 Fuel consumed: <input class="signup-text-input" type="number" name="fuelConsumption"
-                    placeholder="Fuel consumed" /><br><br>
+                    placeholder="Fuel consumed" required /><br><br>
 
                 Actual Arrival Time: <input class="signup-text-input" type="time" name="actualArrivalTime"
-                    placeholder="Actual Arrival Time" /><br><br>
+                    placeholder="Actual Arrival Time" required /><br><br>
 
                 Actual Departure Time: <input type="time" class="signup-text-input" name="actualDepTime"
-                    placeholder="Actual Departure Time" /><br><br>
+                    placeholder="Actual Departure Time" required /><br><br>
 
                 Kilometer Count: <input name="kmCount" class="signup-text-input" placeholder="Kilometer count"
-                    type="number" /><br><br>
+                    type="number" required /><br><br>
 
             </div>
 

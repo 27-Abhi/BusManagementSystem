@@ -30,8 +30,8 @@ if ($_SESSION['status'] != "Active") {
             </div>
 
             <div class="info">
-                DriverID: <input type="text" placeholder="Driver ID" name="did"><br><br>
-                Password: <input type="text" placeholder="password" name="pwd"><br><br>
+                DriverID: <input type="text" placeholder="Driver ID" name="did" required><br><br>
+                Password: <input type="text" placeholder="password" name="pwd" required><br><br>
             </div>
 
             <br>

@@ -15,7 +15,7 @@ if ($_SESSION['status'] != "Active") {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link rel="stylesheet" type="text/css" href="tripDetails.css">
 
     <title>Add Conductor </title>
@@ -33,8 +33,8 @@ if ($_SESSION['status'] != "Active") {
             </div>
 
             <div class="info">
-                ConductorID: <input type="text" placeholder="Conductor ID" name="Cid"><br><br>
-                Password: <input type="text" placeholder="password" name="pwd"><br><br>
+                ConductorID: <input type="text" placeholder="Conductor ID" name="Cid" required><br><br>
+                Password: <input type="text" placeholder="password" name="pwd" required><br><br>
             </div>
 
             <br>

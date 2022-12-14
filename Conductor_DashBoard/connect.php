@@ -73,7 +73,7 @@ if ($rs) {
 
         <div class="info">
             <!--<input type="date" placeholder="Trip Date" name="date">!-->
-            Trip Number:<select name="TripNumber" placeholder="Trip Number">
+            Trip Number:<select name="TripNumber" placeholder="Trip Number" required>
                 <?php
                 $sql = "SELECT trip_no FROM `bus_details`";
                 $trip_nos = mysqli_query($con, $sql);
@@ -100,24 +100,26 @@ if ($rs) {
                 // While loop must be terminated
                 ?>
             </select> <br><br>
-            Phone Number: <input type="number" id="tel" name="PhoneNumber" placeholder="Phone Number" /><br><br>
+            Phone Number: <input type="number" id="tel" name="PhoneNumber" placeholder="Phone Number"
+                required /><br><br>
             <!-- Ticket ID: <input type="text" name="TicketID" placeholder="Ticket ID"><br><br> -->
 
-            Select Source Bus stop: <input type="text" name="sourceChoice" placeholder="Source bus stop"><br><br>
+            Select Source Bus stop: <input type="text" name="sourceChoice" placeholder="Source bus stop"
+                required><br><br>
             <!-- <select name="sourceChoice" placeholder="Source bus stop">
                 <option value="first">Vasco</option>
                 <option value="second" selected>Verna</option>
                 <option value="third">Margao</option>
             </select><br><br> -->
-            Select Destination Bus stop: <input type="text" name="destinationChoice"
-                placeholder="Destination bus stop"><br><br>
+            Select Destination Bus stop: <input type="text" name="destinationChoice" placeholder="Destination bus stop"
+                required><br><br>
             <!-- <select name="destinationChoice" placeholder="Destination bus stop">
                 <option value="first" selected>Vasco</option>
                 <option value="second">Verna</option>
                 <option value="third">Margao</option>
             </select><br><br> -->
 
-            Ticket Price: <input name="Ticketprice" type="number"><br><br>
+            Ticket Price: <input name="Ticketprice" type="number" required><br><br>
 
         </div>
 
