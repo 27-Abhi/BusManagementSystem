@@ -119,8 +119,8 @@ FROM (`bus_details` join `trip_incharge` on(`trip_incharge`.`trip_no_incharge` =
         <?php echo $deleteMsg ?? ''; ?>
         <div class="">
             <form name="myform" action="" method="get">
-                <div class="">
-                    <br>
+                <div class="" align="center">
+                    <br><br>
                     <label for="Date">Search by Date: </label>
                     <input class="form-control" type="date" placeholder="Date" style="width:25%;" name="Date"><br>
                     <input class="btn btn-primary btn-block" type="submit" style="width:25%;">
