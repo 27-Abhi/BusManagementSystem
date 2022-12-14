@@ -286,24 +286,19 @@ if ($_SESSION['status'] != "Active") {
                         } else {
                 ?>
 
-                Welcome! Your Latest Trip ID for
-                <?php echo $data['TripDate'] ?? ''; ?> is
-                <?php echo $data['trip_no'] ?? ''; ?>
-                & Bus number is
-                <?php
-                            foreach ($fetchData as $data) { ?>
-                Latest Trip ID (
+                Welcome! Latest Trip ID:(for
                 <?php echo $data['TripDate'] ?? ''; ?>):
-                <?php echo $data['trip_no'] ?? ''; ?> <br>
+                <?php echo $data['trip_no'] ?? ''; ?><br>
                 Bus number:
                 <?php echo $data['bus_no'] ?? ''; ?>
 
 
+
                 <?php
-                            }
                         }
                     }
-                } ?>
+                }
+                ?>
 
             </h4>
         </div>

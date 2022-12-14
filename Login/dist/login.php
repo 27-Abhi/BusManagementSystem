@@ -14,11 +14,15 @@
 		window.addEventListener('popstate', function () {
 			history.pushState(null, null, null);
 		});
+		window.history.forward();
+		function noBack() {
+			window.history.forward();
+		}
 	</script>
 	<title>Login</title>
 </head>
 
-<body>
+<body onLoad="noBack();">
 	<nav id="mainNavbar" class="navbar navbar-light navbar-expand-md py-1 px-2 fixed-top"
 		style="background-color: #0cb2f9;">
 		<a class="navbar-brand" href="#">
