@@ -57,95 +57,143 @@ WHERE bus_no='$busno'";
 <html>
 
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Bus Revenue</title>
+  <link rel="icon" type="image/x-icon" href="../Images/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="test.css">
+  <link rel="stylesheet" type="text/css" href="../Login/dist/style.css">
+  <style>
+    body {
+      background: url("../Images/bg-dark.jpg") no-repeat center;
+      background-size: cover;
+
+    }
+  </style>
 </head>
 
-<body class="grad" id="grad">
+<body>
 
-  <div class="container" id="Buttondiv">
-    <a type="button" href="AdminDashboard.php" class="btn btn-primary" target="">Back</a>
-    <!--Enter target href-->
-  </div>
+  <nav id="mainNavbar" class="navbar navbar-light navbar-expand-md py-1 px-2 fixed-top"
+    style="background-color: #0cb2f9;">
+    <a class="navbar-brand" href="#">
+      <img src="../Images/icon.png" width="45" height="35" class="d-inline-block align-middle" alt="">
+      BUS MANAGEMENT SYSTEM
+    </a>
+
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navLinks" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-between" id="navLinks">
+
+
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a href="AdminDashboard.php" class="nav-link">HOME</a>
+        </li>
+        <li class="nav-item">
+          <a href="../about.html" class="nav-link">ABOUT</a>
+        </li>
+        <li class="nav-item">
+          <a href="../team.html" class="nav-link">TEAM</a>
+        </li>
+
+
+      </ul>
+      <span class="nav-item ml-auto">
+        <a class="nav-link" role="button" href="AllBusRevenue.php">Go Back</a>
+      </span>
+      <span class="nav-item">
+        <a class="nav-link" role="button" href="../Login/dist/logout.php">Logout</a>
+      </span>
+
+
+    </div>
+  </nav>
+
   <div class="container" id="maindiv">
     <div>
       <div class="col-sm-25">
 
         <form name="myform" align="center" action="SpecificRevenue.php" method="get">
           <div class="info">
-
-            Search BY: Bus Number: <input type="number" placeholder="Bus Number" name="BusNumber"><br><br>
-            <input class="btn btn-primary btn-lg btn-block" type="submit">
+            <br>
+            Search by Bus Number: <input class="form-control" type="number" placeholder="Bus Number"
+              name="BusNumber"><br>
+            <input class="btn btn-primary btn-block" type="submit">
           </div>
+        </form>
+
+        <br>
 
 
-
-
-
-          <?php echo $deleteMsg ?? ''; ?>
-          <div class="table-responsive">
-            <table class="table table-bordered">
-              <thead>
-                <tr>
-                  <th>S.N</th>
-                  <th>Bus Number</th>
-                  <th>revenue</th>
-                  <th>tickets sold</th>
-              </thead>
-              <tbody>
-                <?php
+        <?php echo $deleteMsg ?? ''; ?>
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Bus Number</th>
+                <th>Revenue</th>
+                <th>Tickets Sold</th>
+            </thead>
+            <tbody>
+              <?php
                 if (is_array($fetchData)) {
                   $sn = 1;
                   foreach ($fetchData as $data) {
                 ?>
-                <tr>
+              <tr>
 
 
 
 
-                  <td>
-                    <?php echo $sn; ?>
-                  </td>
-                  <td>
-                    <?php $busNum = $data['bus_no'] ?? '';
+                <td>
+                  <?php echo $sn; ?>
+                </td>
+                <td>
+                  <?php $busNum = $data['bus_no'] ?? '';
                     if (!$busNum) {
                       echo "<script>alert('incorrect bus number')</script>";
-                      echo "bus number not found";
+                      echo "Bus number not found";
                     } // if empty value fetched from database, echos bus no not found
                     else {
                       echo "$busNum";
                     } ?>
-                  </td>
-                  <td>
-                    <?php if (!$busNum) {
-                      echo "bus number not found";
+                </td>
+                <td>
+                  <?php if (!$busNum) {
+                      echo "Bus number not found";
                     } else {
                       echo $data['revenue'] ?? '';
                     } ?>
-                  </td>
-                  <td>
-                    <?php if (!$busNum) {
-                      echo "bus number not found";
+                </td>
+                <td>
+                  <?php if (!$busNum) {
+                      echo "Bus number not found";
                     } else {
                       echo $data['tickets_sold'] ?? '';
                     }
                     ?>
-                  </td>
-                </tr>
-                <?php
+                </td>
+              </tr>
+              <?php
                     $sn++;
                   }
                 } else { ?>
-                <tr>
-                  <td colspan="8">
-                    <?php echo $fetchData; ?>
-                  </td>
-                <tr>
-                  <?php
+              <tr>
+                <td colspan="8">
+                  <?php echo $fetchData; ?>
+                </td>
+              <tr>
+                <?php
                 } ?>
-              </tbody>
-            </table>
-          </div>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
