@@ -124,7 +124,7 @@ if ($_SESSION['status'] != "Active") {
 </head>
 
 <body>
-<nav id="mainNavbar" class="navbar navbar-light navbar-expand-md py-1 px-2 fixed-top"
+    <nav id="mainNavbar" class="navbar navbar-light navbar-expand-md py-1 px-2 fixed-top"
         style="background-color: #0cb2f9;">
         <a class="navbar-brand" href="#">
             <img src="../Images/icon.png" width="45" height="35" class="d-inline-block align-middle" alt="">
@@ -165,8 +165,85 @@ if ($_SESSION['status'] != "Active") {
             <h3>Driver ID:
                 <?php echo $_SESSION['username'] ?>
             </h3>
-            <h3>Bus Number: </h3>
-           
+            <h4> <!-- PHP CODE TO PRINT WELCOME STATMENT -->
+                <?php
+                //PHP CONNECTION
+                $hostName = "localhost";
+                $userName = "root";
+                $password = "";
+                $databaseName = "test4";
+                $conn = new mysqli($hostName, $userName, $password, $databaseName);
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+
+
+                $db = $conn;
+                $tableName = "bus_details";
+
+                $columns = ['trip_no', 'bus_no', 'TripDate'];
+                $fetchData = fetch_data($db, $tableName, $columns);
+                function fetch_data($db, $tableName, $columns)
+                {
+                    if (empty($db)) {
+                        $msg = "Database connection error";
+                    } elseif (empty($columns) || !is_array($columns)) {
+                        $msg = "columns Name must be defined in an indexed array";
+                    } elseif (empty($tableName)) {
+                        $msg = "Table Name is empty";
+                    } else {
+
+                        $conID = $_SESSION['username'];
+                        $result = $db->query("SELECT  `bus_details`.`trip_no` AS `trip_no`,`bus_details`.`bus_no` AS `bus_no`,`bus_details`.`TripDate` AS `TripDate`
+                        FROM (`bus_details` join `trip_incharge` on(`trip_incharge`.`trip_no_incharge` = `bus_details`.`trip_no`))
+                        WHERE `Driver_emp_id`='$conID'
+                        ORDER BY TripDate DESC
+                        LIMIT 1;");
+
+                        //take code from specificRevenue.php-->
+                        //$query="SELECT * FROM Milage ORDER BY DESC";
+//$db->query($query1);
+                
+
+
+                        if ($result == true) {
+                            if ($result->num_rows > 0) {
+                                $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                                $msg = $row;
+                            } else {
+                                $msg = "No Data Found";
+                            }
+                        } else {
+                            $msg = mysqli_error($db);
+                        }
+                    }
+                    return $msg;
+                } {
+                    foreach ((array) $fetchData as $data) {
+                        $chk = $data['bus_no'] ?? '';
+                        if (!$chk) {
+                ?>Welcome! No trips Assigned Yet!
+                <?php
+                        } else {
+                ?>
+
+                Welcome! Latest Trip ID:(for
+                <?php echo $data['TripDate'] ?? ''; ?>):
+                <?php echo $data['trip_no'] ?? ''; ?><br>
+                Bus number:
+                <?php echo $data['bus_no'] ?? ''; ?>
+
+
+
+                <?php
+                        }
+                    }
+                }
+                ?>
+
+            </h4>
+
 
         </div>
         <div class=" left-part">
@@ -177,9 +254,9 @@ if ($_SESSION['status'] != "Active") {
 
             <div class="">
                 <a class="btn btn-item btn-block" style="width: 50%;" href="driverDetails.php">Enter trip Details</a>
-                
-                
-                
+
+
+
             </div>
 
             <br><br><br>
@@ -189,18 +266,21 @@ if ($_SESSION['status'] != "Active") {
                 <!-- DISPLAYS ONLY THOSE TRIPS WHICH HE HAS BEEN ASSIGNED -->
                 <a class="btn btn-item btn-block" style="width: 25%;" href="DriTripView.php">Assigned Trips</a>
             </div>
-           
+
         </div>
 
     </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
 
     <script>
@@ -211,7 +291,7 @@ if ($_SESSION['status'] != "Active") {
             });
         });
     </script>
-	
+
 </body>
 
 </html>

@@ -7,17 +7,17 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 	<link rel="stylesheet" href="./style.css">
 	<script>
-    history.pushState(null, null, null);
-    window.addEventListener('popstate', function () {
-        history.pushState(null, null, null);
-    });
-</script>
+		history.pushState(null, null, null);
+		window.addEventListener('popstate', function () {
+			history.pushState(null, null, null);
+		});
+	</script>
 
 </head>
 
 <body>
 	<!-- partial:index.partial.html -->
-	
+
 
 
 
@@ -28,7 +28,7 @@
 				<h2 class="form__title">Conductor Login</h2>
 				<input type="text" placeholder="User ID" name="usernameC" class="input" />
 				<input type="password" placeholder="Password" name="passwordC" class="input" />
-				<input type="submit" value="loginC" name = "loginC" class="btn">
+				<input type="submit" value="loginC" name="loginC" class="btn">
 			</form>
 		</div>
 
@@ -36,10 +36,10 @@
 		<div class="container__form container--signin">
 			<form action="" class="form" id="form2" method="POST">
 				<h2 class="form__title">Driver Login</h2>
-				<input type="text" placeholder="User ID" name="usernameD" class="input" />
-				<input type="password" placeholder="Password" name="passwordD" class="input" />
+				<input type="text" placeholder="User ID" name="usernameD" class="input" required />
+				<input type="password" placeholder="Password" name="passwordD" class="input" required />
 				<!-- <button class="btn" onclick="validateD()">Login</button> -->
-				<input type="submit" name = "loginD"value="loginD" class="btn">
+				<input type="submit" name="loginD" value="loginD" class="btn">
 			</form>
 		</div>
 
@@ -64,59 +64,55 @@
 	<script src="./script.js"></script>
 
 	<?php
-if(isset($_POST['loginC']))
-{
-	session_start();
+    if (isset($_POST['loginC'])) {
+	    session_start();
 
-	$username = $_POST['usernameC'];
-	$password = $_POST['passwordC'];
+	    $username = $_POST['usernameC'];
+	    $password = $_POST['passwordC'];
 
-	$connection = mysqli_connect('localhost','root','','test4');
-	if(!$connection){die("Connection Error -> ".mysqli_connect_error());}
+	    $connection = mysqli_connect('localhost', 'root', '', 'test4');
+	    if (!$connection) {
+		    die("Connection Error -> " . mysqli_connect_error());
+	    }
 
-	$sql = "SELECT * FROM `login` WHERE user_name = '$username' && password = '$password'";
-	$result = mysqli_query($connection, $sql);
-	$num = mysqli_num_rows($result);
-	if($num==1)
-	{
-		echo "LOGIN SUCCESSFUL";
-		$_SESSION['status']="Active";
-		header("refresh:0, url=../../Conductor_DashBoard/conductorDashboard.html");
-	}
-	else
-	{
-		echo "<script>alert('incorrect id or password')</script>";
-		echo "<script>location.href='myLogin.php'</script>";
-	}
-}
-if(isset($_POST['loginD']))
-{
-	session_start();
+	    $sql = "SELECT * FROM `login` WHERE user_name = '$username' && password = '$password'";
+	    $result = mysqli_query($connection, $sql);
+	    $num = mysqli_num_rows($result);
+	    if ($num == 1) {
+		    echo "LOGIN SUCCESSFUL";
+		    $_SESSION['status'] = "Active";
+		    header("refresh:0, url=../../Conductor_DashBoard/conductorDashboard.html");
+	    } else {
+		    echo "<script>alert('incorrect id or password')</script>";
+		    echo "<script>location.href='myLogin.php'</script>";
+	    }
+    }
+    if (isset($_POST['loginD'])) {
+	    session_start();
 
-	$username = $_POST['usernameD'];
-	$password = $_POST['passwordD'];
+	    $username = $_POST['usernameD'];
+	    $password = $_POST['passwordD'];
 
-	$connection = mysqli_connect('localhost','root','','test4');
-	if(!$connection){die("Connection Error -> ".mysqli_connect_error());}
+	    $connection = mysqli_connect('localhost', 'root', '', 'test4');
+	    if (!$connection) {
+		    die("Connection Error -> " . mysqli_connect_error());
+	    }
 
-	$sql = "SELECT * FROM `login` WHERE user_name = '$username' && password = '$password'";
-	$result = mysqli_query($connection, $sql);
-	$num = mysqli_num_rows($result);
-	if($num==1)
-	{
-		echo "<script>alert('Login successful')</script>";
-		$_SESSION['status']="Active";
-		header("refresh:0, url=../../Conductor_DashBoard/Driver_Dashboard.html");
-	}
-	else
-	{
-		echo "<script>alert('incorrect id or password')</script>";
-		echo "<script>location.href='myLogin.php'</script>";
-	}
-}
+	    $sql = "SELECT * FROM `login` WHERE user_name = '$username' && password = '$password'";
+	    $result = mysqli_query($connection, $sql);
+	    $num = mysqli_num_rows($result);
+	    if ($num == 1) {
+		    echo "<script>alert('Login successful')</script>";
+		    $_SESSION['status'] = "Active";
+		    header("refresh:0, url=../../Conductor_DashBoard/Driver_Dashboard.html");
+	    } else {
+		    echo "<script>alert('incorrect id or password')</script>";
+		    echo "<script>location.href='myLogin.php'</script>";
+	    }
+    }
 
 
-?>
+    ?>
 
 </body>
 
