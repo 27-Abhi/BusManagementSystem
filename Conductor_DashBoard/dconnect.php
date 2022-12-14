@@ -35,7 +35,7 @@ VALUES('$TripNumber', '$fuelConsumption', '$actualArrivalTime', '$actualDepTime'
 $rs = mysqli_query($con, $sql);
 
 if ($rs) {
-    echo "Records Inserted";
+    echo "<p style='color:#EA1C2C;margin:70px 0px 0px 0px;'>Recorded successfully.</p>";
 }
 
 $did = $_SESSION['username'];
