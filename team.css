@@ -1,41 +1,57 @@
 /*Navbar CSS*/
+@font-face {
+    font-family: theSeasons;
+    src: url(Fontspring-DEMO-theseasons-bd.otf);
+    
+}
+h1,h2 {
+    color: black;
+    text-align: center;
+    font-family: theSeasons;
+}
 #mainNavbar {
-	font-size: 1.5rem;
-	font-weight: 100;
+    font-size: 1.5rem;
+    font-weight: 100;
 }
 
 #mainNavbar .nav-link {
-	color: white;
+    color: white;
 }
 
 #mainNavbar .nav-link:hover {
-	color: #EA1C2C;
+    color: #EA1C2C;
 }
 
 #mainNavbar .navbar-brand {
-	color: #EA1C2C;
-	font-size: 1.5rem;
+    color: #EA1C2C;
+    font-size: 1.5rem;
 }
 
 .navbar.scrolled {
-	background: rgb(222, 192, 222);
-	transition: background 500ms;
+    background: rgb(222, 192, 222);
+    transition: background 500ms;
 }
 
 @media (max-width: 1200px) {
-	#headingGroup h1 {
-		font-weight: 100;
-		font-size: 3rem;
-	}
+    #headingGroup h1 {
+        font-weight: 100;
+        font-size: 3rem;
+    }
 
 }
+
 /*End of Navbar CSS*/
+/*About Page*/
 
 
+/*eoAboutPage*/
 
 
-.demo{ background: #e5e5e5; }
-.our-team{
+.demo {
+    background: #e5e5e5;
+}
+
+.our-team {
     border: 2px solid #ff3232;
     border-radius: 10px;
     text-align: center;
@@ -43,8 +59,9 @@
     z-index: 1;
     position: relative;
 }
+
 .our-team:before,
-.our-team:after{
+.our-team:after {
     content: "";
     width: 100%;
     height: 104%;
@@ -56,20 +73,29 @@
     transform: translateY(-50%) scaleX(0.3);
     transition: all 0.3s ease 0s;
 }
-.our-team:after{
+
+.our-team:after {
     width: 106%;
     left: 50%;
     transform: translate(-50%, -50%) scaleY(0.25);
 }
-.our-team:hover:before{ transform: translateY(-50%) scaleX(0.7); }
-.our-team:hover:after{ transform: translate(-50%, -50%) scaleY(0.7); }
-.our-team img{
+
+.our-team:hover:before {
+    transform: translateY(-50%) scaleX(0.7);
+}
+
+.our-team:hover:after {
+    transform: translate(-50%, -50%) scaleY(0.7);
+}
+
+.our-team img {
     width: 100%;
     height: auto;
     border-radius: 10px;
     transition: all 0.3s ease 0s;
 }
-.our-team .team-content{
+
+.our-team .team-content {
     width: 93%;
     padding: 25px 0 10px;
     background: #ff4444;
@@ -80,13 +106,15 @@
     -webkit-clip-path: polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%);
     clip-path: polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%);
     transform: translateX(-50%);
-    transition: all 0.3s cubic-bezier(0.5, 0.2,0.1,0.9);
+    transition: all 0.3s cubic-bezier(0.5, 0.2, 0.1, 0.9);
 }
-.our-team:hover .team-content{
+
+.our-team:hover .team-content {
     bottom: 10px;
     opacity: 1;
 }
-.our-team .title{
+
+.our-team .title {
     font-size: 25px;
     font-weight: 600;
     color: #fff;
@@ -94,23 +122,27 @@
     text-transform: capitalize;
     margin: 0;
 }
-.our-team .post{
+
+.our-team .post {
     display: block;
     font-size: 16px;
     color: #fff;
     text-transform: uppercase;
     margin-bottom: 10px;
 }
-.our-team .social{
+
+.our-team .social {
     padding: 0;
     margin: 0;
     list-style: none;
 }
-.our-team .social li{
+
+.our-team .social li {
     display: inline-block;
     margin: 0 5px;
 }
-.our-team .social li a{
+
+.our-team .social li a {
     display: block;
     width: 35px;
     height: 35px;
@@ -121,11 +153,15 @@
     color: #ff3232;
     transition: all 0.3s ease 0s;
 }
-.our-team .social li a:hover{
-    background: linear-gradient(to bottom,#ff3232, darkred);
-    box-shadow: 0 0 0 5px rgba(255,255,255,0.3);
+
+.our-team .social li a:hover {
+    background: linear-gradient(to bottom, #ff3232, darkred);
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.3);
     color: #fff;
 }
-@media only screen and (max-width: 990px){
-    .our-team{ margin-bottom: 30px; }
+
+@media only screen and (max-width: 990px) {
+    .our-team {
+        margin-bottom: 30px;
+    }
 }
