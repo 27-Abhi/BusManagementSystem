@@ -1,4 +1,6 @@
-﻿# Bus-management-system
+﻿# Bus-management-system Developed by: Abhinav Kuppasad and Navin Morajkar
+ 
+ Developed by: Abhinav Kuppasad and Navin Morajkar
  
 The goal of the bus management system is to offer a systematic method for managing the depot admin, drivers, and conductors.
 
@@ -28,3 +30,9 @@ DRIVER:
 Similarly When the driver logs in, he can see the trip number, as well as the bus number and trip date.
 
 The driver can enter trip information such as fuel consumed, actual arrival and departure times, and kilometres driven.
+
+
+
+Admin Credentials:
+username:admin
+password:12345678
