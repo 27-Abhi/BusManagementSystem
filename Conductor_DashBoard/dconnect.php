@@ -38,6 +38,9 @@ if ($rs) {
     echo "Records Inserted";
 }
 
+$did = $_SESSION['username'];
+$sql1 = "SELECT trip_no_incharge FROM `trip_incharge` WHERE Driver_emp_id='$did'";
+$trip_nos = mysqli_query($con, $sql1);
 ?>
 
 
@@ -129,10 +132,10 @@ if ($rs) {
                         ):
                             ;
                         ?>
-                        <option value="<?php echo $bus_details["trip_no"];
+                        <option value="<?php echo $bus_details["trip_no_incharge"];
                             // The value we usually set is the primary key
                         ?>">
-                            <?php echo $bus_details["trip_no"];
+                            <?php echo $bus_details["trip_no_incharge"];
                             // To show the category name to the user
                             ?>
                         </option>
