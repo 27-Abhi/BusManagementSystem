@@ -82,7 +82,7 @@ if ($_SESSION['status'] != "Active") {
             <div class="form-group">
                 <div class="form-group">
                     <label>Conductor ID: </label>
-                    <input class="form-control" type="text" placeholder="Conductor ID" name="Cid">
+                    <input class="form-control" type="text" placeholder="Conductor ID" name="Cid" maxlength="4">
                 </div>
                 <div class="form-group">
                     <label>Password: </label>
