@@ -120,7 +120,7 @@ echo "<p style='color:#EA1C2C;margin:70px 0px 0px 0px;'>Trip number generated Su
 
         </div>
     </nav>
-    <div class="maindiv" id="maindiv" style="width: 40%;">
+    <div class="maindiv" id="maindiv" style="width: 40%; margin:10px;">
 
         <form action="SuperAdmin.php" method="post">
             <div class="title">
