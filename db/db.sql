@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2022 at 06:29 AM
+-- Generation Time: Dec 14, 2022 at 06:21 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -35,6 +35,16 @@ CREATE TABLE `bus_details` (
   `TripDate` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `bus_details`
+--
+
+INSERT INTO `bus_details` (`bus_no`, `trip_no`, `Source`, `Destination`, `TripDate`) VALUES
+(122, 1, 'Vasco', 'Margao', '2022-12-14'),
+(225, 4, 'vasco', 'cancona', '2022-12-14'),
+(227, 2, 'panaji', 'ponda', '2022-12-14'),
+(532, 3, 'Vasco', 'Panjim', '2022-12-14');
+
 -- --------------------------------------------------------
 
 --
@@ -51,8 +61,8 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`user_name`, `password`) VALUES
-('', ''),
-('C001', '1234');
+('C001', '1234'),
+('C002', '1234');
 
 -- --------------------------------------------------------
 
@@ -90,8 +100,9 @@ CREATE TABLE `login_driver` (
 --
 
 INSERT INTO `login_driver` (`user_name`, `password`) VALUES
-('', ''),
-('D001', '1234');
+('D001', '1234'),
+('D002', '1234'),
+('D003', '1234');
 
 -- --------------------------------------------------------
 
@@ -104,6 +115,15 @@ CREATE TABLE `lossmaking` (
   `revenue` int(11) NOT NULL,
   `tickets_sold` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `lossmaking`
+--
+
+INSERT INTO `lossmaking` (`Trip_no`, `revenue`, `tickets_sold`) VALUES
+(1, 556, 20),
+(2, 575, 20),
+(3, 500, 32);
 
 -- --------------------------------------------------------
 
@@ -131,6 +151,18 @@ CREATE TABLE `passenger` (
   `Passenger_destination` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `passenger`
+--
+
+INSERT INTO `passenger` (`phone_no`, `ticket_id`, `ticket_price`, `Passenger_source`, `trip_no_passenger`, `Passenger_destination`) VALUES
+('8999681766', 1, 15, 'MES', 1, 'margao'),
+('70028021993', 2, 10, 'Verna', 1, 'margao'),
+('70028021993', 3, 10, 'Verna', 1, 'margao'),
+('8999681766', 4, 10, 'Chicalim', 3, 'Cortalim'),
+('123456790', 5, 15, 'vasco', 3, 'Cortalim'),
+('8999681766', 6, 15, 'Chicalim', 2, 'panjim');
+
 -- --------------------------------------------------------
 
 --
@@ -140,10 +172,17 @@ CREATE TABLE `passenger` (
 CREATE TABLE `quicktrips` (
   `Trip_no` int(11) NOT NULL,
   `fuel` int(11) NOT NULL,
-  `arrival_time` int(11) NOT NULL,
-  `departure_time` int(11) NOT NULL,
+  `arrival_time` time NOT NULL,
+  `departure_time` time NOT NULL,
   `km_count` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `quicktrips`
+--
+
+INSERT INTO `quicktrips` (`Trip_no`, `fuel`, `arrival_time`, `departure_time`, `km_count`) VALUES
+(2, 50, '22:18:20', '22:00:23', 10);
 
 -- --------------------------------------------------------
 
@@ -171,6 +210,15 @@ CREATE TABLE `trip_incharge` (
   `scheduled_arr_time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `trip_incharge`
+--
+
+INSERT INTO `trip_incharge` (`trip_no_incharge`, `Driver_emp_id`, `Conductor_emp_id`, `scheduled_dept_time`, `scheduled_arr_time`) VALUES
+(2, 'D001', 'C001', '14:43:00', '16:43:00'),
+(3, 'D002', 'C002', '17:00:00', '18:20:00'),
+(4, 'D001', 'C001', '19:45:00', '21:45:00');
+
 -- --------------------------------------------------------
 
 --
@@ -184,6 +232,16 @@ CREATE TABLE `trip_real_details` (
   `departure_time` time NOT NULL,
   `km_count` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `trip_real_details`
+--
+
+INSERT INTO `trip_real_details` (`trip_no_real`, `fuel`, `arrival_time`, `departure_time`, `km_count`) VALUES
+(1, 56, '15:37:00', '14:37:00', 20),
+(2, 32, '15:00:00', '16:01:00', 50),
+(3, 50, '18:23:00', '17:23:00', 25),
+(2, 50, '20:43:00', '20:43:00', 25);
 
 --
 -- Triggers `trip_real_details`
@@ -206,6 +264,16 @@ CREATE TABLE `trip_result` (
   `revenue` int(11) NOT NULL,
   `tickets_sold` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `trip_result`
+--
+
+INSERT INTO `trip_result` (`trip_no_result`, `revenue`, `tickets_sold`) VALUES
+(1, 556, 20),
+(2, 575, 20),
+(3, 500, 32),
+(2, 5000, 30);
 
 --
 -- Triggers `trip_result`
