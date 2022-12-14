@@ -1,4 +1,4 @@
-﻿# Bus-management-system Developed by: Abhinav Kuppasad and Navin Morajkar
+﻿# Bus-management-system
  
  Developed by: Abhinav Kuppasad and Navin Morajkar
  
