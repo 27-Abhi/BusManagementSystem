@@ -117,6 +117,17 @@ FROM (`bus_details` join `trip_incharge` on(`trip_incharge`.`trip_no_incharge` =
         <!-- 'trip_no', 'bus_no','Source','Destination','TripDate','Driver_emp_id','scheduled_dept_time', 'scheduled_arrival_time' -->
 
         <?php echo $deleteMsg ?? ''; ?>
+        <div class="">
+            <form name="myform" action="" method="get">
+                <div class="">
+                    <br>
+                    <label for="Date">Search by Date: </label>
+                    <input class="form-control" type="date" placeholder="Date" style="width:25%;" name="Date"><br>
+                    <input class="btn btn-primary btn-block" type="submit" style="width:25%;">
+                </div>
+            </form>
+        </div>
+        <br>
         <div class="table-responsive bg-white">
             <table class="table table-hover table-bordered table-striped mb-0" style="text-align: center;">
                 <thead>
