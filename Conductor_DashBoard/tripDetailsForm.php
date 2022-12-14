@@ -86,7 +86,10 @@ $trip_nos = mysqli_query($con, $sql);
                 <!-- Trip Number: <input type="number" placeholder="Trip Number" name="TripNumber"><br><br> -->
                 <div class="form-group">
                 <label>Trip Number:</label>
-                <select class="form-control" name="TripNumber" placeholder="Trip Number">
+                <select class="form-control" name="TripNumber" placeholder="Trip Number" style="padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #aaaaaa;">
                     <?php
                     // use a while loop to fetch data
                     // from the $all_categories variable
