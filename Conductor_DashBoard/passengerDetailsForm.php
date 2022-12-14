@@ -135,8 +135,8 @@ $trip_nos = mysqli_query($con, $sql);
                 </select><br><br> -->
                 </div>
                 <div class="form-group">
-                <label>Ticket Price: </label>
-                <input class="form-control" placeholder="Ticket Price" name="Ticketprice" type="number">
+                    <label>Ticket Price: </label>
+                    <input class="form-control" placeholder="Ticket Price" name="Ticketprice" type="number">
                 </div>
             </div>
             
