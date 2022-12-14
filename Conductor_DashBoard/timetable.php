@@ -1,10 +1,4 @@
 <?php
-
-// session_start();
-
-// if ($_SESSION['status'] != "Active") {
-//     header("location:../Login/dist/login.php");
-
 //database connection
 $hostName = "localhost";
 $userName = "root";
@@ -20,7 +14,7 @@ if ($conn->connect_error) {
 $db = $conn;
 $tableName = "bus_details";
 
-$columns = ['trip_no', 'bus_no', 'Source', 'Destination', 'TripDate', 'scheduled_dept_time', 'scheduled_arrival_time'];
+$columns = ['trip_no', 'bus_no', 'Source', 'Destination', 'TripDate', 'Driver_emp_id', 'Conductor_emp_id', 'scheduled_dept_time', 'scheduled_arrival_time'];
 $fetchData = fetch_data($db, $tableName, $columns);
 function fetch_data($db, $tableName, $columns)
 {
@@ -32,9 +26,10 @@ function fetch_data($db, $tableName, $columns)
         $msg = "Table Name is empty";
     } else {
 
-        // $conID = $_SESSION['username'];
-        $result = $db->query("SELECT `bus_details`.`trip_no` AS `trip_no`,`bus_details`.`bus_no` AS `bus_no`, `bus_details`.`Source` AS `Source`,`bus_details`.`Destination` AS `Destination`,`bus_details`.`TripDate` AS `TripDate`,`trip_incharge`.`scheduled_dept_time` AS `scheduled_dept_time`,`trip_incharge`.`scheduled_arr_time` AS `scheduled_arr_time`
-FROM (`bus_details` join `trip_incharge` on(`trip_incharge`.`trip_no_incharge` = `bus_details`.`trip_no`))"); //take code from specificRevenue.php-->
+
+        $result = $db->query("SELECT `bus_details`.`trip_no` AS `trip_no`,`bus_details`.`bus_no` AS `bus_no`, `bus_details`.`Source` AS `Source`,`bus_details`.`Destination` AS `Destination`,`bus_details`.`TripDate` AS `TripDate`,`trip_incharge`.`Driver_emp_id` AS `Driver_emp_id`,`trip_incharge`.`Conductor_emp_id` AS `Conductor_emp_id`,`trip_incharge`.`scheduled_dept_time` AS `scheduled_dept_time`,`trip_incharge`.`scheduled_arr_time` AS `scheduled_arr_time`
+FROM (`bus_details` join `trip_incharge` on(`trip_incharge`.`trip_no_incharge` = `bus_details`.`trip_no`))
+"); //take code from specificRevenue.php-->
         //$query="SELECT * FROM Milage ORDER BY DESC";
 //$db->query($query1);
 
@@ -132,6 +127,8 @@ FROM (`bus_details` join `trip_incharge` on(`trip_incharge`.`trip_no_incharge` =
                         <th scope="col">Source</th>
                         <th scope="col">Destination</th>
                         <th scope="col">Trip Date</th>
+                        <th scope="col">Driver ID</th>
+                        <th scope="col">Conductor ID</th>
                         <th scope="col">Departure Time</th>
                         <th scope="col">Arrival Time</th>
                 </thead>
@@ -159,6 +156,12 @@ FROM (`bus_details` join `trip_incharge` on(`trip_incharge`.`trip_no_incharge` =
                         </td>
                         <td>
                             <?php echo $data['TripDate'] ?? ''; ?>
+                        </td>
+                        <td>
+                            <?php echo $data['Driver_emp_id'] ?? ''; ?>
+                        </td>
+                        <td>
+                            <?php echo $data['Conductor_emp_id'] ?? ''; ?>
                         </td>
                         <td>
                             <?php echo $data['scheduled_dept_time'] ?? ''; ?>
