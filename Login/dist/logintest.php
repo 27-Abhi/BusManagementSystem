@@ -57,23 +57,22 @@
 
 		</div>
 	</nav>
-
 	<div class="container right-panel-active">
 		<!-- Conductor Login -->
 
 		<div class="container__form container--signup">
 			<form action="" class="form" method="POST">
-				<input type="text" name="username" class="input" placeholder="Enter your username">
-				<input type="password" class="input" name="password" placeholder="Enter your password">
-				<input type="submit" name="loginC" value="login" class='btn'>
+				<input type="text" name="username" class="input" placeholder="Enter your Conductor ID" required>
+				<input type="password" class="input" name="password" placeholder="Enter your password" required><br>
+				<input type="submit" name="loginC" value="login" class='btn'></input>
 			</form>
 		</div>
 
 		<!-- Driver Login -->
 		<div class="container__form container--signin">
 			<form action="" method="POST" class='form'>
-				<input type="text" name="username" class="input" placeholder="Enter your username">
-				<input type="password" name="password" class="input" placeholder="Enter your password">
+				<input type="text" name="username" class="input" placeholder="Enter your Driver ID" required>
+				<input type="password" name="password" class="input" placeholder="Enter your password" required><br>
 				<input type="submit" name="loginD" value="login" class='btn'>
 			</form>
 		</div>

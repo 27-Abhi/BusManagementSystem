@@ -63,8 +63,8 @@
 
 		<div class="container__form container--signup">
 			<form action="" class="form" method="POST">
-				<input type="text" name="username" class="input" placeholder="Enter your Conductor ID">
-				<input type="password" class="input" name="password" placeholder="Enter your password"><br>
+				<input type="text" name="username" class="input" placeholder="Enter your Conductor ID" required>
+				<input type="password" class="input" name="password" placeholder="Enter your password" required><br>
 				<input type="submit" name="loginC" value="login" class='btn'></input>
 			</form>
 		</div>
@@ -72,8 +72,8 @@
 		<!-- Driver Login -->
 		<div class="container__form container--signin">
 			<form action="" method="POST" class='form'>
-				<input type="text" name="username" class="input" placeholder="Enter your Driver ID">
-				<input type="password" name="password" class="input" placeholder="Enter your password"><br>
+				<input type="text" name="username" class="input" placeholder="Enter your Driver ID" required>
+				<input type="password" name="password" class="input" placeholder="Enter your password" required><br>
 				<input type="submit" name="loginD" value="login" class='btn'>
 			</form>
 		</div>
@@ -134,7 +134,7 @@
 	    $sql = "SELECT * FROM `login_driver` WHERE user_name = '$username' && password = '$password'";
 	    $result = mysqli_query($connection, $sql);
 	    $num = mysqli_num_rows($result);
-	    if ($num >= 1) {
+	    if ($num == 1) {
 		    echo "<script>alert('Logged In successfuly!')</script>";
 		    $_SESSION['status'] = "Active";
 		    $_SESSION['username'] = "$username";
