@@ -36,7 +36,7 @@
 
 .demo{ background: #e5e5e5; }
 .our-team{
-    border: 2px solid #EA1C2C;
+    border: 2px solid #ff3232;
     border-radius: 10px;
     text-align: center;
     margin: 10px;
@@ -48,7 +48,7 @@
     content: "";
     width: 100%;
     height: 104%;
-    background: #EA1C2C;
+    background: #ff3232;
     position: absolute;
     top: 50%;
     left: 0;
@@ -118,11 +118,11 @@
     border-radius: 50%;
     background: #fff;
     font-size: 20px;
-    color: #EA1C2C;
+    color: #ff3232;
     transition: all 0.3s ease 0s;
 }
 .our-team .social li a:hover{
-    background: linear-gradient(to bottom,#EA1C2C, darkred);
+    background: linear-gradient(to bottom,#ff3232, darkred);
     box-shadow: 0 0 0 5px rgba(255,255,255,0.3);
     color: #fff;
 }
