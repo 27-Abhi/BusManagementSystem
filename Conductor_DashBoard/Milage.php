@@ -208,80 +208,102 @@ function fetch_data($db, $tableName, $columns)
 
         <!-- GRAPH CODE ENDS HER -->
       </div>
-    
-    <!-- SEARCH CODE STARTS HERE -->
-    <div class="container col-sm">
-      <div class="" id="maindiv">
-        <div>
-          <div class="col-sm-25">
 
-            <form align="center" action="milageBusNo.php" method="get">
-              <div class="form-group">
-                <br>
-                Search by Bus Number: <input class="form-control" type="number" placeholder="Bus Number" name="BusNumber">
-                <br>
-                <input class="btn btn-primary btn-lg btn-block" type="submit">
-              </div>
+      <!-- SEARCH CODE STARTS HERE -->
+      <div class="container col-sm">
+        <div class="" id="maindiv">
+          <div>
+            <div class="col-sm-25">
 
-
-
+              <form align="center" action="milageBusNo.php" method="get">
+                <div class="form-group">
+                  <br>
+                  Search by Bus Number: <input class="form-control" type="number" placeholder="Bus Number"
+                    name="BusNumber">
+                  <br>
+                  <input class="btn btn-primary btn-lg btn-block" type="submit">
+                </div>
 
 
-              <?php echo $deleteMsg ?? ''; ?>
-              <div class="table-responsive">
-                <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th>S.N</th>
-                      <th>Bus Number</th>
-                      <th>MILAGE</th>
-                  </thead>
-                  <tbody>
-                    <?php
-                    if (is_array($fetchData)) {
-                      $sn = 1;
-                      foreach ($fetchData as $data) {
-                    ?>
-                    <tr>
-                      <td>
-                        <?php echo $sn; ?>
-                      </td>
-                      <td>
-                        <?php $busNum = $data['bus_no'] ?? '';
-                        if (!$busNum) {
-                          echo "bus number not found";
-                        } // if empty value fetched from database, echos bus no not found
-                        else {
-                          echo "$busNum";
-                        } ?>
-                      </td>
-                      <td>
-                        <?php if (!$busNum) {
-                          echo "bus number not found";
-                        } else {
-                          echo $data['MILAGE'] ?? '';
-                        } ?>
-                      </td>
-                    </tr>
-                    <?php
-                        $sn++;
-                      }
-                    } else { ?>
-                    <tr>
-                      <td colspan="8">
-                        <?php echo $fetchData; ?>
-                      </td>
-                    <tr>
+
+
+
+                <?php echo $deleteMsg ?? ''; ?>
+                <div class="table-responsive">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th>S.N</th>
+                        <th>Bus Number</th>
+                        <th>MILAGE</th>
+                    </thead>
+                    <tbody>
                       <?php
-                    } ?>
-                  </tbody>
-                </table>
-              </div>
+                      if (is_array($fetchData)) {
+                        $sn = 1;
+                        foreach ($fetchData as $data) {
+                      ?>
+                      <tr>
+                        <td>
+                          <?php echo $sn; ?>
+                        </td>
+                        <td>
+                          <?php $busNum = $data['bus_no'] ?? '';
+                          if (!$busNum) {
+                            echo "bus number not found";
+                          } // if empty value fetched from database, echos bus no not found
+                          else {
+                            echo "$busNum";
+                          } ?>
+                        </td>
+                        <td>
+                          <?php if (!$busNum) {
+                            echo "bus number not found";
+                          } else {
+                            echo $data['MILAGE'] ?? '';
+                          } ?>
+                        </td>
+                      </tr>
+                      <?php
+                          $sn++;
+                        }
+                      } else { ?>
+                      <tr>
+                        <td colspan="8">
+                          <?php echo $fetchData; ?>
+                        </td>
+                      <tr>
+                        <?php
+                      } ?>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"></script>
+
+    <script>
+      $(function () {
+        $(document).scroll(function () {
+          var $nav = $("#mainNavbar");
+          $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
+        });
+      });
+    </script>
 
 </body>
 
