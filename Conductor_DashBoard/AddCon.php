@@ -89,7 +89,7 @@ if ($_SESSION['status'] != "Active") {
                     <input class="form-control" type="text" placeholder="Password" name="pwd">
                 </div>
                 <br>
-                <button class="btn-item btn-block" style="width: 100%;" type="submit">Submit</button>
+                <button class="btn-item btn-block" style="width: 100%;" name='sub' type="submit">Submit</button>
             </div>
 
 
@@ -121,31 +121,31 @@ if ($_SESSION['status'] != "Active") {
 </body>
 
 <?php
-
-// database connection code
+if (isset($_POST['sub'])) {
+    // database connection code
 // $con = mysqli_connect('localhost', 'database_user', 'database_password','database');
 
-$con = mysqli_connect('localhost', 'root', '', 'test4');
+    $con = mysqli_connect('localhost', 'root', '', 'test4');
 
-// get the post records
-$pwd = $_POST['pwd'];
-$cid = $_POST['Cid'];
+    // get the post records
+    $pwd = $_POST['pwd'];
+    $cid = $_POST['Cid'];
 
 
 
-// database insert SQL code
+    // database insert SQL code
 
-$sql = "INSERT INTO `login`(`user_name`,`password`) 
+    $sql = "INSERT INTO `login`(`user_name`,`password`) 
   VALUES('$cid', '$pwd')";
 
-// insert in database 
-$rs = mysqli_query($con, $sql);
+    // insert in database 
+    $rs = mysqli_query($con, $sql);
 
-if ($pwd != '') {
-    echo "<script>alert('Conductor ADDED!')</script>";
+    if ($pwd != '') {
+        echo "<script>alert('Conductor ADDED!')</script>";
+    }
+
 }
-
-
 ?>
 
 </html>
