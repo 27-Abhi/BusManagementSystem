@@ -179,7 +179,7 @@ function fetch_data($db, $tableName, $columns)
                 theme: "light2", // "light1", "light2", "dark1", "dark2"
 
                 title: {
-                  text: "Revenue"
+                  text: "MILEAGE"
                 },
                 axisY: {
                   title: "Milage"
