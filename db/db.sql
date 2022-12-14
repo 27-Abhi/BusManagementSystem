@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2022 at 08:18 AM
+-- Generation Time: Dec 14, 2022 at 06:29 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -35,34 +35,6 @@ CREATE TABLE `bus_details` (
   `TripDate` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `bus_details`
---
-
-INSERT INTO `bus_details` (`bus_no`, `trip_no`, `Source`, `Destination`, `TripDate`) VALUES
-(1, 12, '1', '1', '2022-12-08'),
-(7, 16, 'pedne', 'vasco', '2022-12-10'),
-(12, 10, '2', '12', '2022-12-07'),
-(12, 11, '2', '12', '2022-12-07'),
-(12, 13, '2', '12', '2022-12-07'),
-(63, 17, 'panaji', 'Pednem', '2022-12-09'),
-(71, 18, 'panaji', 'cancona', '2022-12-09'),
-(115, 8, 'Ponda', 'vasco', '2022-12-01'),
-(122, 1, 'Vasco', 'Margao', '2022-11-22'),
-(122, 21, 'panaji', 'vasco', '2022-12-13'),
-(122, 22, 'panaji', 'vasco', '2022-12-13'),
-(123, 9, 'panaji', 'vasco', '2022-12-07'),
-(129, 2, 'PANJIM', 'MARGAO', '2022-11-25'),
-(334, 3, 'panaji', 'vasco', '2022-11-25'),
-(534, 14, 'Porvorim', 'Pedne', '2022-12-10'),
-(534, 15, 'Porvorim', 'Pedne', '2022-12-10'),
-(555, 5, 'panjim', 'ponda', '2022-11-30'),
-(765, 19, 'panaji', 'vasco', '2022-12-11'),
-(765, 20, 'panaji', 'vasco', '2022-12-11'),
-(987, 4, 'Ponda', 'Margao', '2022-11-30'),
-(999, 6, 'panaji', 'vasco', '2022-12-08'),
-(999, 7, 'panaji', 'vasco', '2022-12-08');
-
 -- --------------------------------------------------------
 
 --
@@ -80,10 +52,7 @@ CREATE TABLE `login` (
 
 INSERT INTO `login` (`user_name`, `password`) VALUES
 ('', ''),
-('C1000', '1234'),
-('C1111', '1234'),
-('c12', '12'),
-('C1234', '1234');
+('C001', '1234');
 
 -- --------------------------------------------------------
 
@@ -101,7 +70,9 @@ CREATE TABLE `login_admin` (
 --
 
 INSERT INTO `login_admin` (`user_name`, `password`) VALUES
-('admin', '12345678');
+('admin', '12345678'),
+('abhinav', 'abhinav'),
+('navin', 'navin');
 
 -- --------------------------------------------------------
 
@@ -119,9 +90,8 @@ CREATE TABLE `login_driver` (
 --
 
 INSERT INTO `login_driver` (`user_name`, `password`) VALUES
-('D1234', '1234'),
-('D1000', '1234'),
-('', '');
+('', ''),
+('D001', '1234');
 
 -- --------------------------------------------------------
 
@@ -134,16 +104,6 @@ CREATE TABLE `lossmaking` (
   `revenue` int(11) NOT NULL,
   `tickets_sold` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `lossmaking`
---
-
-INSERT INTO `lossmaking` (`Trip_no`, `revenue`, `tickets_sold`) VALUES
-(1, 57, 4),
-(2, 575, 19),
-(4, 500, 45),
-(4, 500, 54);
 
 -- --------------------------------------------------------
 
@@ -171,32 +131,6 @@ CREATE TABLE `passenger` (
   `Passenger_destination` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `passenger`
---
-
-INSERT INTO `passenger` (`phone_no`, `ticket_id`, `ticket_price`, `Passenger_source`, `trip_no_passenger`, `Passenger_destination`) VALUES
-('2147483647', 1212, 15, 'vasco', 1, 'margao'),
-('323', 12, 20, 'vasco', 1, 'becl'),
-('782389728', 9, 33, 'vasco', 1, 'margao'),
-('899977', 3, 15, 'PANJIM', 2, 'MARGAO'),
-('2147483647', 3, 15, 'vasco', 1, 'margao'),
-('2147483647', 3, 15, 'vasco', 1, 'margao'),
-('1234567890', 4, 50, 'vasco', 3, 'panjim'),
-('2147483647', 4, 15, 'vasco', 3, 'panjim'),
-('0', 5, 20, 'vasco', 3, 'panjim'),
-('2147483647', 5, 20, 'Panjim', 3, 'Vasco'),
-('987654321', 3, 100, 'Panjim', 3, 'vasco'),
-('2147483647', 15, 12, 'NSD', 4, 'Pcce'),
-('2147483647', 15, 12, 'NSD', 4, 'Pcce'),
-('2147483647', 12, 12, 'vasco', 3, 'Pcce'),
-('123456789', 0, 14, 'vasco', 4, 'panjim'),
-('123456789', 1213, 14, 'vasco', 4, 'panjim'),
-('8999681766', 1214, 0, 'vasco', 11, 'margao'),
-('25', 1215, 15, 'NSD', 1, 'margao'),
-('25', 1216, 15, 'NSD', 1, 'margao'),
-('25', 1217, 15, 'NSD', 1, 'margao');
-
 -- --------------------------------------------------------
 
 --
@@ -210,14 +144,6 @@ CREATE TABLE `quicktrips` (
   `departure_time` int(11) NOT NULL,
   `km_count` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `quicktrips`
---
-
-INSERT INTO `quicktrips` (`Trip_no`, `fuel`, `arrival_time`, `departure_time`, `km_count`) VALUES
-(1, 50, 0, 202020, 20),
-(2, 50, 185032, 182732, 35);
 
 -- --------------------------------------------------------
 
@@ -245,18 +171,6 @@ CREATE TABLE `trip_incharge` (
   `scheduled_arr_time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `trip_incharge`
---
-
-INSERT INTO `trip_incharge` (`trip_no_incharge`, `Driver_emp_id`, `Conductor_emp_id`, `scheduled_dept_time`, `scheduled_arr_time`) VALUES
-(17, '0', '0', '20:07:00', '22:07:00'),
-(4, '121', '122', '16:39:00', '14:39:00'),
-(4, '1221', '1222', '00:00:00', '00:00:00'),
-(20, 'D1001', 'C1000', '11:43:00', '01:43:00'),
-(18, 'D1234', 'C1234', '21:08:00', '23:08:00'),
-(22, 'D1234', 'C1234', '20:55:00', '20:55:00');
-
 -- --------------------------------------------------------
 
 --
@@ -270,23 +184,6 @@ CREATE TABLE `trip_real_details` (
   `departure_time` time NOT NULL,
   `km_count` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `trip_real_details`
---
-
-INSERT INTO `trip_real_details` (`trip_no_real`, `fuel`, `arrival_time`, `departure_time`, `km_count`) VALUES
-(1, 32, '00:00:00', '00:00:00', 20),
-(1, 32, '00:00:00', '00:00:00', 20),
-(1, 32, '16:51:00', '23:51:00', 20),
-(1, 50, '00:00:00', '06:04:44', 20),
-(1, 50, '00:00:00', '20:20:20', 20),
-(2, 50, '14:48:30', '12:48:30', 30),
-(2, 50, '18:50:32', '18:27:32', 35),
-(3, 58, '16:09:00', '14:09:00', 30),
-(3, 58, '16:09:00', '14:09:00', 30),
-(4, 53, '16:41:00', '14:41:00', 34),
-(5, 50, '16:49:00', '14:49:00', 35);
 
 --
 -- Triggers `trip_real_details`
@@ -309,21 +206,6 @@ CREATE TABLE `trip_result` (
   `revenue` int(11) NOT NULL,
   `tickets_sold` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `trip_result`
---
-
-INSERT INTO `trip_result` (`trip_no_result`, `revenue`, `tickets_sold`) VALUES
-(1, 555, 30),
-(1, 57, 4),
-(2, 575, 19),
-(2, 5000, 60),
-(2, 5000, 60),
-(4, 500, 45),
-(4, 500, 54),
-(1, 10000, 56),
-(1, 5000, 121);
 
 --
 -- Triggers `trip_result`
