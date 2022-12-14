@@ -3,12 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Bus Management System</title>
+	<link rel="icon" type="image/x-icon" href="../../Images/favicon.ico">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
 	<link rel="stylesheet" href="style.css">
-	<script>
+	<script> //for not going back after logging in
 		history.pushState(null, null, null);
 		window.addEventListener('popstate', function () {
 			history.pushState(null, null, null);
@@ -16,10 +17,9 @@
 		window.history.forward();
 		function noBack() {
 			window.history.forward();
-		} 
+		}
 	</script>
 	<title>Login</title>
-
 </head>
 
 <body onLoad="noBack();">
@@ -47,6 +47,9 @@
 				<li class="nav-item">
 					<a href="../../team.html" class="nav-link">TEAM</a>
 				</li>
+				<li class="nav-item">
+					<a href="../../Conductor_DashBoard/timetable.php" class="nav-link">TIME TABLE</a>
+				</li>
 
 
 			</ul>
@@ -57,6 +60,7 @@
 
 		</div>
 	</nav>
+
 	<div class="container right-panel-active">
 		<!-- Conductor Login -->
 
@@ -89,6 +93,8 @@
 			</div>
 		</div>
 	</div>
+
+
 
 	<!-- partial -->
 	<script src="./script.js"></script>
@@ -135,9 +141,10 @@
 		    echo "<script>alert('Logged In successfuly!')</script>";
 		    $_SESSION['status'] = "Active";
 		    $_SESSION['username'] = "$username";
-		    header("refresh:0, url=../../Conductor_DashBoard/Driver_DashBoard.php");
+		    header("refresh:1, url=../../Conductor_DashBoard/Driver_DashBoard.php");
 	    } else {
-		    echo "<script>alert('incorrect id or password')</script>";
+		    echo "<script>alert('incorrect id or password')</script>"
+		    ;
 		    echo "<script>location.href='logintest.php'</script>";
 	    }
     }
@@ -167,6 +174,7 @@
 			});
 		});
 	</script>
+
 
 
 </body>

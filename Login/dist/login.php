@@ -48,7 +48,7 @@
 					<a href="../../team.html" class="nav-link">TEAM</a>
 				</li>
 				<li class="nav-item">
-					<a href="../../team.html" class="nav-link">TIME TABLE</a>
+					<a href="../../Conductor_DashBoard/timetable.php" class="nav-link">TIME TABLE</a>
 				</li>
 
 
