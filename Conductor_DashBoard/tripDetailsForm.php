@@ -100,28 +100,28 @@ $trip_nos = mysqli_query($con, $sql);
     border-radius: 10px;
     box-shadow: 5px 5px 5px #aaaaaa;">
                         <?php
-                        // use a while loop to fetch data
-                        // from the $all_categories variable
-                        // and individually display as an option
-                        while (
-                            $bus_details = mysqli_fetch_array(
-                                $trip_nos,
-                            MYSQLI_ASSOC
-                            )
-                        ):
-                            ;
-                        ?>
-                        <option value="<?php echo $bus_details["trip_no_incharge"];
-                            // The value we usually set is the primary key
-                        ?>">
-                            <?php echo $bus_details["trip_no_incharge"];
-                            // To show the category name to the user
+                            // use a while loop to fetch data
+                            // from the $all_categories variable
+                            // and individually display as an option
+                            while (
+                                $bus_details = mysqli_fetch_array(
+                                    $trip_nos,
+                                MYSQLI_ASSOC
+                                )
+                            ):
+                                ;
                             ?>
+                        <option value="<?php echo $bus_details["trip_no_incharge"];
+                                // The value we usually set is the primary key
+                            ?>">
+                            <?php echo $bus_details["trip_no_incharge"];
+                                // To show the category name to the user
+                                ?>
                         </option>
                         <?php
-                        endwhile;
-                        // While loop must be terminated
-                        ?>
+                            endwhile;
+                            // While loop must be terminated
+                            ?>
                     </select>
                 </div>
 

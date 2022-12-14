@@ -4,19 +4,22 @@ h2 {
 
 input[type=number] {
     padding: 5px;
-    margin: 5px 0 border-radius: 10px;
+    margin: 5px 0;
+    border-radius: 10px;
     box-shadow: 5px 5px 5px #aaaaaa;
 }
 
 input[type=time] {
     padding: 5px;
-    margin: 5px 0 border-radius: 10px;
+    margin: 5px 0;
+    border-radius: 10px;
     box-shadow: 5px 5px 5px #aaaaaa;
 }
 
 input[type=text] {
     padding: 5px;
-    margin: 5px 0 border-radius: 10px;
+    margin: 5px 0 ;
+    border-radius: 10px;
     box-shadow: 5px 5px 5px #aaaaaa;
 }
 
