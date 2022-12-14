@@ -2,13 +2,22 @@
 @font-face {
     font-family: theSeasons;
     src: url(Fontspring-DEMO-theseasons-bd.otf);
-    
+
 }
-h1,h2 {
+
+h1,
+h2,
+h3{
     color: black;
     text-align: center;
     font-family: theSeasons;
 }
+h4{
+    color: black;
+    font-family: theSeasons;
+    font-weight: bolder;
+}
+
 #mainNavbar {
     font-size: 1.5rem;
     font-weight: 100;

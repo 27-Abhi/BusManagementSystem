@@ -63,49 +63,78 @@
     <div class="container" style="padding-top:5%;">
         <img src="Images/icon.png" class="img-fluid rounded mx-auto d-block" style="width:25%; height: 25%">
         <h1 class="text-center">Bus Management System</h1><br>
-        <h2 class="text-center">DBMS Mini Project</h2><br>
-        <div>
-            <p>
-                The goal of the bus management system is to offer a systematic method for managing the depot admin,
-                drivers,
-                and conductors.
-                <br><br>
-                The Depot administrator can access all the data, add drivers and conductors, and allocate them trips
-                thanks
-                to the bus management system. The bus conductor can enter the revenue generated from each trip while
-                also
-                purchasing tickets for passengers.
-                The driver can input the actual time of departure and arrival as well as the amount of fuel used.
+        <h2 class="text-center">DBMS Mini Project</h2>
 
-                <br><br>
-                As a result, the Bus Management system makes it simple to operate and administer the bus transportation
-                service.
+        <p>
+            The goal of the bus management system is to offer a systematic method for managing the depot admin,
+            drivers,
+            and conductors.
+            <br><br>
+            The Depot administrator can access all the data, add drivers and conductors, and allocate them trips
+            thanks
+            to the bus management system. The bus conductor can enter the revenue generated from each trip while
+            also
+            purchasing tickets for passengers.
+            The driver can input the actual time of departure and arrival as well as the amount of fuel used.
 
-            </p>
-            <div>
-            </div>
+            <br><br>
+            As a result, the Bus Management system makes it simple to operate and administer the bus transportation
+            service.
+
+        </p>
+        <p>
+            <br>
+        <h3 class="text-center">Database Description</h3>
+        <h4>BUS</h4>
+        Each bus will have a unique bus number.
+        <br><br>
+
+        <h4>ADMIN</h4>
+        The depot administrator can add new conductors/drivers by assigning them their credentials, which
+        include the Conductor/driver ID and password. The administrator can also assign trips.
+        The bus number, source, destination, scheduled arrival, departure, conductor ID, and driver ID must all
+        be entered by the administrator. The trip number, which is the primary key, is auto generated.
+        <br><br>
+        <h4>CONDUCTOR</h4>
+        When the conductor logs in, he can see the trip number he was assigned, as well as the bus number and
+        journey date.
+
+        The conductor can purchase tickets for the passenger by entering the passenger's mobile number, the
+        source, the destination, the price, and the trip number. A one-of-a-kind ticket id will be generated.
+
+        The conductor can enter trip details such as revenue generated and number of tickets sold.
+        <br><br>
+        <h4>DRIVER</h4>
+        Similarly When the driver logs in, he can see the trip number, as well as the bus number and trip date.
+
+        The driver can enter trip information such as fuel consumed, actual arrival and departure times, and
+        kilometres driven.
+
+        </p>
+
+    </div>
 
 
-            <!-- Optional JavaScript -->
-            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-                crossorigin="anonymous"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-                integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-                crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-                integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-                crossorigin="anonymous"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 
-            <script>
-                $(function () {
-                    $(document).scroll(function () {
-                        var $nav = $("#mainNavbar");
-                        $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
-                    });
-                });
-            </script>
+    <script>
+        $(function () {
+            $(document).scroll(function () {
+                var $nav = $("#mainNavbar");
+                $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
+            });
+        });
+    </script>
 </body>
 
 </html>
