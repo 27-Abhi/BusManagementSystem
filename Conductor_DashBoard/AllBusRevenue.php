@@ -134,37 +134,36 @@ function fetch_data($db, $tableName, $columns)
         <div class='graph'>
 
           <?php
-            //$busno = $_GET['BusNumber'];
-            $dataPoints = array();
-            //Best practice is to create a separate file for handling connection to database
-            try {
-              // Creating a new connection.
-              // Replace your-hostname, your-db, your-username, your-password according to your database
-              $link = new \PDO(
-                'mysql:host=localhost;dbname=test4;charset=utf8mb4',
-                //'mysql:host=localhost;dbname=canvasjs_db;charset=utf8mb4',
-                'root',
-                //'root',
-                '',
-                //'',
-                array(
-                    \PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                    \PDO::ATTR_PERSISTENT => false
-                )
-              );
+          //$busno = $_GET['BusNumber'];
+          $dataPoints = array();
+          //Best practice is to create a separate file for handling connection to database
+          try {
+            // Creating a new connection.
+            // Replace your-hostname, your-db, your-username, your-password according to your database
+            $link = new \PDO(
+              'mysql:host=localhost;dbname=test4;charset=utf8mb4',
+              //'mysql:host=localhost;dbname=canvasjs_db;charset=utf8mb4',
+              'root',
+              //'root',
+              '',
+              //'',
+              array(
+                  \PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                  \PDO::ATTR_PERSISTENT => false
+              )
+            );
 
-              $handle = $link->prepare("SELECT bus_no AS x,revenue AS y FROM `RevenuePerBus`");
-              $handle->execute();
-              $result = $handle->fetchAll(\PDO::FETCH_OBJ);
+            $handle = $link->prepare("SELECT bus_no AS x,revenue AS y FROM `RevenuePerBus`");
+            $handle->execute();
+            $result = $handle->fetchAll(\PDO::FETCH_OBJ);
 
-              foreach ($result as $row) {
-                array_push($dataPoints, array("x" => $row->x, "y" => $row->y));
-              }
-              $link = null;
-            } 
-            catch (\PDOException $ex) {
-              print($ex->getMessage());
+            foreach ($result as $row) {
+              array_push($dataPoints, array("x" => $row->x, "y" => $row->y));
             }
+            $link = null;
+          } catch (\PDOException $ex) {
+            print($ex->getMessage());
+          }
 
           ?>
           <script>
@@ -192,18 +191,18 @@ function fetch_data($db, $tableName, $columns)
                   dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
                 }]
               });
-              chart.render();
+            chart.render();
               
             }
 
           </script>
 
           <div id="chartContainer" style="height: 100%; width: 100%;"></div> <!--   container for graphs -->
-            
-            <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
-          </div>
+          <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
         </div>
+      </div>
 
       <div class="container col-sm">
         <div class="" id="maindiv">
@@ -212,8 +211,9 @@ function fetch_data($db, $tableName, $columns)
 
               <form name="myform" align="center" action="SpecificRevenue.php" method="get">
                 <div class="form-group">
-                <br>
-                  Search by Bus Number: <input class="form-control" type="number" placeholder="Bus Number" name="BusNumber"><br>
+                  <br>
+                  Search by Bus Number: <input class="form-control" type="number" placeholder="Bus Number"
+                    name="BusNumber"><br>
                   <input class="btn btn-primary btn-lg btn-block" type="submit">
                 </div>
               </form>
@@ -229,8 +229,8 @@ function fetch_data($db, $tableName, $columns)
                   </thead>
                   <tbody>
                     <?php
-                      if (is_array($fetchData)) {
-                        $sn = 1;
+                    if (is_array($fetchData)) {
+                      $sn = 1;
                       foreach ($fetchData as $data) {
                     ?>
                     <tr>
@@ -248,17 +248,16 @@ function fetch_data($db, $tableName, $columns)
                       </td>
                     </tr>
                     <?php
-                  $sn++;
-                }
-              } 
-              else { ?>
+                        $sn++;
+                      }
+                    } else { ?>
                     <tr>
                       <td colspan="8">
                         <?php echo $fetchData; ?>
                       </td>
                     <tr>
                       <?php
-              } ?>
+                    } ?>
                   </tbody>
                 </table>
               </div>

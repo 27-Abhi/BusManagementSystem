@@ -132,7 +132,7 @@ WHERE bus_no='$busno'";
 
         <?php echo $deleteMsg ?? ''; ?>
         <div class="table-responsive">
-          <table class="table table-bordered">
+          <table class="table table-hover table-bordered table-striped mb-0" style="text-align: center;"">
             <thead>
               <tr>
                 <th>#</th>
@@ -142,10 +142,10 @@ WHERE bus_no='$busno'";
             </thead>
             <tbody>
               <?php
-                if (is_array($fetchData)) {
-                  $sn = 1;
-                  foreach ($fetchData as $data) {
-                ?>
+              if (is_array($fetchData)) {
+                $sn = 1;
+                foreach ($fetchData as $data) {
+              ?>
               <tr>
 
 
@@ -156,42 +156,42 @@ WHERE bus_no='$busno'";
                 </td>
                 <td>
                   <?php $busNum = $data['bus_no'] ?? '';
-                    if (!$busNum) {
-                      echo "<script>alert('incorrect bus number')</script>";
-                      echo "Bus number not found";
-                    } // if empty value fetched from database, echos bus no not found
-                    else {
-                      echo "$busNum";
-                    } ?>
+                  if (!$busNum) {
+                    echo "<script>alert('incorrect bus number')</script>";
+                    echo "Bus number not found";
+                  } // if empty value fetched from database, echos bus no not found
+                  else {
+                    echo "$busNum";
+                  } ?>
                 </td>
                 <td>
                   <?php if (!$busNum) {
-                      echo "Bus number not found";
-                    } else {
-                      echo $data['revenue'] ?? '';
-                    } ?>
+                    echo "Bus number not found";
+                  } else {
+                    echo $data['revenue'] ?? '';
+                  } ?>
                 </td>
                 <td>
                   <?php if (!$busNum) {
-                      echo "Bus number not found";
-                    } else {
-                      echo $data['tickets_sold'] ?? '';
-                    }
-                    ?>
+                    echo "Bus number not found";
+                  } else {
+                    echo $data['tickets_sold'] ?? '';
+                  }
+                  ?>
                 </td>
               </tr>
               <?php
-                    $sn++;
-                  }
-                } else { ?>
+                  $sn++;
+                }
+              } else { ?>
               <tr>
-                <td colspan="8">
-                  <?php echo $fetchData; ?>
-                </td>
-              <tr>
-                <?php
-                } ?>
-            </tbody>
+                <td colspan=" 8">
+            <?php echo $fetchData; ?>
+            </td>
+            <tr>
+              <?php
+              } ?>
+              </tbody>
           </table>
         </div>
       </div>
