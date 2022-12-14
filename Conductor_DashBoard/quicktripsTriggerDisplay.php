@@ -124,12 +124,12 @@ function fetch_data($db, $tableName, $columns)
           <table class="table table-hover table-bordered table-striped mb-0" style="text-align: center;">
             <thead>
               <tr>
-                <th>S.N</th>
+                <th>#</th>
                 <th>Trip Number</th>
                 <th>Fuel</th>
                 <th>Departure Time</th>
                 <th>Arrival Time</th>
-                <th>Km count</th>
+                <th>KM count</th>
             </thead>
             <tbody>
               <?php
