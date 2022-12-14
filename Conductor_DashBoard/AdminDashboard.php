@@ -200,7 +200,9 @@ if ($_SESSION['status'] != "Active") {
 
                 <div class="child">
                     <h3>Triggers</h3>
-                    <a class="btn btn-item btn-block" style="width: 50%;" href="AllBusRevenue.php">Revenue Generated</a>
+                    <a class="btn btn-item btn-block" style="width: 50%;" href="quicktripsTriggerDisplay.php">Quick
+                        Trips</a>
+
                     <a class="btn btn-item btn-block" style="width: 50%;" href="LossMakingTriggerDisplay.php">Loss
                         making Buses</a>
                 </div>
@@ -208,8 +210,7 @@ if ($_SESSION['status'] != "Active") {
                 <div class="child">
                     <h3>Views</h3>
                     <a class="btn btn-item btn-block" style="width: 50%;" href="Milage.php">Bus Mileage</a>
-                    <a class="btn btn-item btn-block" style="width: 50%;" href="quicktripsTriggerDisplay.php">Quick
-                        Trips</a>
+                    <a class="btn btn-item btn-block" style="width: 50%;" href="AllBusRevenue.php">Revenue Generated</a>
                 </div>
             </div>
 

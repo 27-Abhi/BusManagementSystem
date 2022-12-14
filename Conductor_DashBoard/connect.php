@@ -7,6 +7,7 @@ if ($_SESSION['status'] != "Active") {
 
 
 
+
 // database connection code
 // $con = mysqli_connect('localhost', 'database_user', 'database_password','database');
 
@@ -43,7 +44,8 @@ $sql = "INSERT INTO `passenger`(`trip_no_passenger`, `phone_no`, `ticket_id`, `P
 $rs = mysqli_query($con, $sql);
 
 if ($rs) {
-    echo "Tickets generated. ticket id is '{$TicketID}'";
+    //echo "Tickets generated. ticket id is '{$TicketID}'";
+    echo "<p style='color:#EA1C2C;margin:70px 0px 0px 0px;'>Ticket generated. Ticket ID is '{$TicketID}'.</p>";
 }
 
 
@@ -115,7 +117,7 @@ $trip_nos = mysqli_query($con, $sql);
         </div>
     </nav>
 
-    <div class="maindiv" id="maindiv" style="width: 30%; padding:2%;">
+    <div class="maindiv" id="maindiv" style="width: 30%; margin: 0px; padding:2%;">
         <form action="connect.php" method="post">
             <div class="title">
                 <h2 class="text-center">Enter Passenger Details</h2>
